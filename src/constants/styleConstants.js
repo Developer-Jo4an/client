@@ -1,0 +1,8 @@
+export const GREEN_COLOR = '#24e597'
+export const DARK_GREEN_COLOR = '#05bc19'
+export const GRAY_BACKGROUND = '#e5e4e4'
+export const GOLD_COLOR = '#ffcf48'
+export const DARK_GOLD_COLOR = '#fcbd18'
+export const ORANGE_COLOR = '#f5d544'
+export const RED_COLOR = '#ee3a3a'
+export const SHADOW = '#eaeaea'
