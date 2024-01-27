@@ -1,8 +1,7 @@
 import { SafeAreaView, StatusBar } from 'react-native'
-
 import Home from './src/screens/home/general/Home'
-
 import AppProvider from './AppProvider'
+
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 

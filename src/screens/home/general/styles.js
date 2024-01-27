@@ -6,6 +6,8 @@ export const styles = {
 	},
 	homeScreenContent: {
 		gap: 10,
-		alignItems: 'center'
+		alignItems: 'center',
+
+		paddingBottom: 10
 	}
 }

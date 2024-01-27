@@ -1,22 +1,16 @@
 import React from 'react'
-import Modal from 'react-native-modal'
-import { ActivityIndicator } from 'react-native'
+import { ActivityIndicator, View, Modal } from 'react-native'
 
 import { GREEN_COLOR } from '../../../constants/styleConstants'
 
+import { styles } from './styles'
+
 const TransparentLoader = ({ isVisible }) => {
 
-    return (
-        <Modal
-            isVisible={ isVisible }
-            coverScreen={ true }
-            animationInTiming={ 0 }
-            animationOutTiming={ 0 }
-            statusBarTranslucent={ true }
-            useNativeDriver={ true }
-            backdropOpacity={ 0.7 }
-            style={{ margin: 0, padding: 0, justifyContent: 'center', alignItems: 'center' }}
-        ><ActivityIndicator color={ GREEN_COLOR } size={ 'large' } /></Modal>
+	return (
+		<Modal visible={ isVisible } animationType={ 'none' } transparent={ true } statusBarTranslucent={ true }>
+			<View style={ styles.loaderWrapper }><ActivityIndicator color={ GREEN_COLOR } /></View>
+		</Modal>
     )
 }
 

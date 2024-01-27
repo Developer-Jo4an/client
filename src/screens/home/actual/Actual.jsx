@@ -1,5 +1,5 @@
-import React, { memo } from 'react'
-import {View, Text, FlatList, Image, TouchableNativeFeedback} from 'react-native'
+import React, { memo, useState } from 'react'
+import { View, Text, FlatList, Image, TouchableNativeFeedback } from 'react-native'
 
 import { styles } from './styles'
 
@@ -11,16 +11,20 @@ import Sasuke from '../../../images/actual-images/Sasuke.jpg'
 import Di from '../../../images/actual-images/Di.jpg'
 import Kuroro from '../../../images/actual-images/Kuroro.jpg'
 
+
 const Actual = memo(({ subscriptionLevel }) => {
 
 	const actualData = [Johan, Ichimaru, Griffit, Aizen, Sasuke, Di, Kuroro]
+
+	const state = useState(false)
+
 
 	const actualComponent = img => {
 		return (
 			<View style={ styles.actualWrapper(subscriptionLevel) }>
 				<Image source={ img } style={ styles.actualImg }/>
 				<View style={ styles.actualClickUI }>
-					<TouchableNativeFeedback><View style={ styles.actualClickUIView }></View></TouchableNativeFeedback>
+					<TouchableNativeFeedback onPress={ () => state[1](prev => !prev) }><View style={ styles.actualClickUIView }></View></TouchableNativeFeedback>
 				</View>
 			</View>
 		)

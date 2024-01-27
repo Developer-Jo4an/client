@@ -7,7 +7,7 @@ import { styles } from './styles'
 
 const ColorCircle = ({ callback, colorList, state }) => {
 
-    const result = state[0] === colorList[0] && state[1] === colorList[1]
+	const result = state[0] === colorList[0] && state[1] === colorList[1]
 
     const animation = useRef(new Animated.Value(+result)).current
 
@@ -36,7 +36,7 @@ const ColorCircle = ({ callback, colorList, state }) => {
 }
 
 const MemoizedColorCircle = memo(ColorCircle, (prev, next) => {
-    const prevState = prev.state
+	const prevState = prev.state
     const nextState = next.state
     const colors = prev.colorList
 

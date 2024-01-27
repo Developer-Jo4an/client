@@ -13,10 +13,8 @@ export const useRequest = (tryCallback, finallyCallback, isLoading = false) => {
 		catch (e) { setError(e.message) }
 		finally {
 			finallyCallback()
-			setTimeout(() => {
-				setLoad(false)
-			}, 5000)
-
+			setLoad(false)
+			setError(false)
 		}
 	}
 

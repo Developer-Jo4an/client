@@ -1,26 +1,26 @@
-import React, { useState } from 'react'
-import { View, Text, Modal } from 'react-native'
+import React from 'react'
+import { View, Text } from 'react-native'
 
-import AddBtn from '../../../UI/buttons/add-btn/AddBtn'
-import ModalWindowBottom from '../../../components/modal-windows/modal-window-bottom/ModalWindowBottom'
+import AccountAddBtn from './account-add-btn/AccountAddBtn'
 import { MemoizedAccount } from '../../../components/account/Account'
-import NewAccount from './modal-windows/new-account/NewAccount'
-import NewAccountProvider from './modal-windows/new-account/NewAccountProvider'
 
 import { styles } from './styles'
 
-const Accounts = ({ accounts }) => {
+const Accounts = ({ accounts, modifiedAccountVisible, modifiedAccountDispatch }) => {
 
-	const [newAccountMW, setNewAccountMW] = useState(false)
+	const setModifiedAccount = account => {
+		modifiedAccountDispatch({ type: 'set-account', action: account })
+		modifiedAccountVisible[1](true)
+	}
 
 	return (
 		<View style={ styles.accountsAccounts }>
 			<View style={ styles.accountsHeader }>
 				<Text style={ styles.accountsHeaderValue }>Accounts</Text>
-				<AddBtn callback={() => setNewAccountMW(true)}/>
+				<AccountAddBtn/>
 			</View>
 			<View style={ styles.accountsWrapper }>
-				{ accounts.map((account, index) => <MemoizedAccount key={ index } account={ account } callback={ () => {} }/>) }
+				{ accounts.map((account, index) => <MemoizedAccount key={ index } account={ account } callback={ setModifiedAccount }/>) }
 			</View>
 		</View>
 	)

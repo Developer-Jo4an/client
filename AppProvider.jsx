@@ -33,7 +33,7 @@ const AppProvider = ({ children }) => {
 		request()
 	}, [])
 
-	if (load) return <OpaqueLoader/>
+	if (load) return <OpaqueLoader />
 	if (error) return <Error error={ error } reloadFunction={ getUserInfoRequest }/>
 
 	return (

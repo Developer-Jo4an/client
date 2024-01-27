@@ -3,9 +3,9 @@ export const accountValidation = account => {
         return { validation: false, message: 'Invalid account name' }
     if (account.count === Infinity || account.count === -Infinity || isNaN(account.count) || typeof account.count !== 'number')
         return { validation: false, message: 'Invalid account amount' }
-    if (account.accountName.length < 1 && account.accountName.length > 15)
+    if (account.accountName.length < 1 || account.accountName.length > 15)
         return { validation: false, message: 'Name length out of range' }
-    if (account.count.toString().length < 1 && account.count.toString().length > 15)
+    if (account.count.toString().length < 1 || account.count.toString().length > 15)
         return { validation: false, message: 'Amount out of range' }
     if (account.accountType !== 'cash' && account.accountType !== 'card')
         return { validation: false, message: 'Invalid account type' }

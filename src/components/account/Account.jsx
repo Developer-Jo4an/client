@@ -11,7 +11,7 @@ const Account = ({ account, callback }) => {
 
 	return (
 		<View style={ styles.accountContainer }>
-			<TouchableNativeFeedback onPress={ callback }>
+			<TouchableNativeFeedback onPress={ () => callback(account) }>
 				<View style={ styles.accountWrapper }>
 					<View style={ styles.accountLeftPart }>
 						<View style={ styles.accountSignContainer }>
