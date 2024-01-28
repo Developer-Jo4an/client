@@ -42,7 +42,7 @@ const ModifiedAccountPreview = memo(({ modifiedAccount, closeMW, modifiedAccount
 
 	const cancelFunction = () => {
 		const prevAccountState = userState.accounts.find(account => account._id === modifiedAccountState._id)
-		modifiedAccountDispatch({ type: 'set-account', action: prevAccountState })
+		modifiedAccountDispatch({ type: 'set-account', account: prevAccountState })
 	}
 
 	return (

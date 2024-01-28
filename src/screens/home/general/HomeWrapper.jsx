@@ -5,14 +5,14 @@ import Actual from '../actual/Actual'
 import Total from '../total/Total'
 import Header from '../header/Header'
 import Accounts from '../accounts/Accounts'
-import ModalWindowBottom from '../../../components/modal-windows/modal-window-bottom/ModalWindowBottom'
+import { MemoizedModalWindowBottom } from '../../../components/modal-windows/modal-window-bottom/ModalWindowBottom'
 import NewAccount from '../modal-windows/new-account-modal-window/NewAccount'
+import ModifiedAccount from '../modal-windows/modified-account-modal-window/ModifiedAccount'
 
 import { useAppContext } from '../../../../AppProvider'
 import { useHomeContext } from './HomeProvider'
 
 import { styles } from './styles'
-import ModifiedAccount from '../modal-windows/modified-account-modal-window/ModifiedAccount';
 
 const HomeWrapper = () => {
 
@@ -25,7 +25,7 @@ const HomeWrapper = () => {
 	const homeComponents = [
 		{ key: 'Actual', component: <Actual /> },
 		{ key: 'Total', component: <Total accounts={ accounts } /> },
-		{ key: 'Accounts', component: <Accounts accounts={ accounts } modifiedAccountVisible={ modifiedAccountVisible } modifiedAccountDispatch={ modifiedAccount[1] }/> },
+		{ key: 'Accounts', component: <Accounts accounts={ accounts } modifiedAccountVisible={ modifiedAccountVisible } modifiedAccount={ modifiedAccount }/> },
 	]
 
 	return (
@@ -41,8 +41,8 @@ const HomeWrapper = () => {
 				style={ styles.homeScreenContainer }
 				contentContainerStyle={ styles.homeScreenContent }
 			/>
-			<ModalWindowBottom visible={ newAccountVisible }><NewAccount /></ModalWindowBottom>
-			<ModalWindowBottom visible={ modifiedAccountVisible }><ModifiedAccount /></ModalWindowBottom>
+			<MemoizedModalWindowBottom visible={ newAccountVisible } contentHeight={ 350 }><NewAccount /></MemoizedModalWindowBottom>
+			<MemoizedModalWindowBottom visible={ modifiedAccountVisible } contentHeight={ 350 }><ModifiedAccount /></MemoizedModalWindowBottom>
 		</>
 
 	)}

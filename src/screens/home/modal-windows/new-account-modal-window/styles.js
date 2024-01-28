@@ -1,5 +1,9 @@
 export const styles = {
 	newAccountContainer: {
+		height: 350,
+
+		justifyContent: 'space-between',
+
 		paddingTop: 10,
 		paddingBottom: 10,
 

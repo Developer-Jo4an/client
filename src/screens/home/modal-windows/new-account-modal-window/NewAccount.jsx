@@ -12,7 +12,6 @@ import { useHomeContext } from '../../general/HomeProvider'
 import { styles } from './styles'
 
 const NewAccount = () => {
-
 	const { newAccount, newAccountVisible, newAccountNameInput, newAccountCountInput } = useHomeContext()
 	const closeMW = () => newAccountVisible[1](false)
 

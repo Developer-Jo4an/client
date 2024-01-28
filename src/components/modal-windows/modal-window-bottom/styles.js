@@ -21,11 +21,11 @@ export const styles = {
 
 		backgroundColor: 'red'
 	},
-	modalWindowBottomWrapper: animation => ({
+	modalWindowBottomWrapper: (animation, contentHeight) => ({
 		transform: [{
 			translateY: animation.interpolate({
 				inputRange: [0, 1],
-				outputRange: [SCREEN_HEIGHT, 0]
+				outputRange: [contentHeight, 0]
 			})
 		}]
 	})

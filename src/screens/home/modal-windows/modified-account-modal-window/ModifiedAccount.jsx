@@ -12,9 +12,9 @@ import { useHomeContext } from '../../general/HomeProvider'
 import { styles } from './styles'
 
 const ModifiedAccount = () => {
-
 	const { modifiedAccount, modifiedAccountVisible, modifiedAccountNameInput, modifiedAccountCountInput } = useHomeContext()
 	const closeMW = () => modifiedAccountVisible[1](false)
+
 	return (
 		<View style={ styles.modifiedAccountContainer }>
 			<ModifiedAccountName
