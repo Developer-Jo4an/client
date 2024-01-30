@@ -13,4 +13,14 @@ export class RequestService {
 		})
 		return userInfo.data
 	}
+	static async modifiedAccount(account) {
+		const userInfo = await axios.put(`${DOMAIN}/${USER_ID}/modified-account`, {
+			account: account
+		})
+		return userInfo.data
+	}
+	static async deleteAccount(id) {
+		const userInfo = await axios.delete(`${DOMAIN}/${USER_ID}/delete-account/${id}`)
+		return userInfo.data
+	}
 }

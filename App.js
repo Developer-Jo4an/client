@@ -3,18 +3,18 @@ import Home from './src/screens/home/general/Home'
 import AppProvider from './AppProvider'
 
 import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Stack = createNativeStackNavigator()
+const Tab = createBottomTabNavigator()
 
 export default function App() {
 	return (
 		<AppProvider>
-			<SafeAreaView style={{ flexGrow: 1}}>
+			<SafeAreaView style={{ flexGrow: 1 }}>
 				<NavigationContainer>
-					<Stack.Navigator>
-						<Stack.Screen name={'Home'} component={ Home } options={{ headerShown: false }} />
-					</Stack.Navigator>
+					<Tab.Navigator>
+						<Tab.Screen name={'Home'} component={ Home } options={{ headerShown: false }} />
+					</Tab.Navigator>
 				</NavigationContainer>
 				<StatusBar translucent={ true } barStyle={ 'dark-content'} backgroundColor={ 'transparent' }/>
 			</SafeAreaView>

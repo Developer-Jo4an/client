@@ -44,7 +44,7 @@ const HomeWrapper = () => {
 			<MemoizedModalWindowBottom visible={ newAccountVisible } contentHeight={ 350 }><NewAccount /></MemoizedModalWindowBottom>
 			<MemoizedModalWindowBottom visible={ modifiedAccountVisible } contentHeight={ 350 }><ModifiedAccount /></MemoizedModalWindowBottom>
 		</>
-
-	)}
+	)
+}
 
 export default HomeWrapper

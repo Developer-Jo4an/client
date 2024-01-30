@@ -30,8 +30,8 @@ const ModifiedAccount = () => {
 			<ModifiedAccountPreview
 				modifiedAccount={ modifiedAccount }
 				closeMW={ closeMW }
-				modifiedAccountNameInput={ modifiedAccountNameInput }
 				modifiedAccountCountInput={ modifiedAccountCountInput }
+				modifiedAccountNameInput={ modifiedAccountNameInput }
 			/>
 		</View>
 	)

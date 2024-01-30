@@ -2,16 +2,18 @@ import React, { memo } from 'react'
 import { Alert, View } from 'react-native'
 
 import ApplyBtn from '../../../../../UI/buttons/apply-btn/ApplyBtn'
-import CancelBtn from '../../../../../UI/buttons/cancel-btn/CancelBtn'
 import TransparentLoader from '../../../../../components/loaders/transparent-loader/TransparentLoader'
+import DeleteBtn from '../../../../../UI/buttons/delete-btn/DeleteBtn'
 import { Shadow } from 'react-native-shadow-2'
 import { MemoizedAccount } from '../../../../../components/account/Account'
 import { SHADOW } from '../../../../../constants/styleConstants'
 
 import { useAppContext } from '../../../../../../AppProvider'
 import { useRequest } from '../../../../../hooks/useRequest'
-import { accountValidation } from '../../../../../constants/validationConstants'
+import { accountValidation, accountCloneValidation } from '../../../../../constants/validationConstants'
 import { RequestService } from '../../../../../service/RequestService'
+
+import { ENCRYPTED_ID } from '../../../../../constants/variableConstants'
 
 import { styles } from './styles'
 
@@ -22,37 +24,52 @@ const ModifiedAccountPreview = memo(({ modifiedAccount, closeMW, modifiedAccount
 
 	const [modifiedAccountState, modifiedAccountDispatch] = modifiedAccount
 
-	const [request, isLoading, error] = useRequest(async () => {
-		const validation = accountValidation(modifiedAccountState)
+	const [modifiedAccountRequest, modifiedIsLoading, modifiedError] = useRequest(async () => {
+		const validationAccount = accountValidation(modifiedAccountState)
+		const cloneValidation = accountCloneValidation(modifiedAccountState, userState.accounts.find(account => account._id === modifiedAccountState._id))
 
-		if (!validation.validation) throw new Error(validation.message)
+		if (!validationAccount.validation) throw new Error(validationAccount.message)
+		if (!cloneValidation.validation) throw new Error(cloneValidation.message)
 
-		const userData = await RequestService.addAccount(modifiedAccountState)
+		const userData = await RequestService.modifiedAccount(modifiedAccountState)
 
 		if (!userData.status) throw new Error(userData.message)
 		else userDispatch({ type: 'set-accounts', accounts: userData.accounts })
 	}, () => {
-		modifiedAccountDispatch({ type: 'reset' })
-		closeMW()
 		if (modifiedAccountNameInput.current) modifiedAccountNameInput.current.clear()
 		if (modifiedAccountCountInput.current) modifiedAccountCountInput.current.clear()
+
+		modifiedAccountDispatch({ type: 'reset' })
+		closeMW()
 	})
 
-	if (error) Alert.alert('Error', error.toString())
 
-	const cancelFunction = () => {
-		const prevAccountState = userState.accounts.find(account => account._id === modifiedAccountState._id)
-		modifiedAccountDispatch({ type: 'set-account', account: prevAccountState })
-	}
+	const [deleteAccountRequest, deleteIsLoading, deleteError] = useRequest(async () => {
+		if (modifiedAccountState._id === ENCRYPTED_ID) throw new Error('This card cannot be deleted!')
+
+		const userData = await RequestService.deleteAccount(modifiedAccountState._id)
+
+		if (!userData.status) throw new Error(userData.message)
+		else userDispatch({ type: 'set-accounts', accounts: userData.accounts })
+	}, () => {
+		if (modifiedAccountNameInput.current) modifiedAccountNameInput.current.clear()
+		if (modifiedAccountCountInput.current) modifiedAccountCountInput.current.clear()
+
+		modifiedAccountDispatch({ type: 'reset' })
+		closeMW()
+	})
+
+	if (modifiedError) Alert.alert('Error', modifiedError.toString())
+	if (deleteError) Alert.alert('Error', deleteError.toString())
 
 	return (
 		<View style={ styles.modifiedAccountPreviewContainer }>
-			<CancelBtn callback={ cancelFunction }/>
+			<DeleteBtn callback={ deleteAccountRequest } />
 			<Shadow distance={ 5 } startColor={ SHADOW } style={ styles.modifiedAccountShadow }>
 				<MemoizedAccount callback={ () => {} } account={ modifiedAccountState } />
 			</Shadow>
-			<ApplyBtn callback={ request } />
-			<TransparentLoader isVisible={ isLoading }/>
+			<ApplyBtn callback={ modifiedAccountRequest } />
+			<TransparentLoader isVisible={ modifiedIsLoading || deleteIsLoading } />
 		</View>
 	)
 }, (prev, next) => {

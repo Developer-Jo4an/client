@@ -17,3 +17,10 @@ export const accountValidation = account => {
     ) return { validation: false, message: 'Invalid account color' }
     return { validation: true }
 }
+
+export const accountCloneValidation = (state, account) => {
+    let count = 0
+    for (const key in state) if (state[key] !== account[key]) count++
+    if (count) return { validation: true }
+    else return { validation: false, message: 'Make changes!' }
+}

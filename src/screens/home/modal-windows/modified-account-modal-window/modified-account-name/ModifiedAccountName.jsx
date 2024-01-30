@@ -5,11 +5,12 @@ import { styles } from './styles'
 
 const ModifiedAccountName = memo(({ modifiedAccount, modifiedAccountNameInput }) => {
 
-	const [_, modifiedAccountDispatch] = modifiedAccount
+	const [modifiedAccountState, modifiedAccountDispatch] = modifiedAccount
 
 	return (
 		<View style={ styles.modifiedAccountNameContainer }>
 			<TextInput
+				defaultValue={ modifiedAccountState.accountName }
 				ref={ modifiedAccountNameInput }
 				maxLength={ 15 }
 				placeholder={ 'Name' }
