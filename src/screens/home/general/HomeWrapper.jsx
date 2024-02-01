@@ -1,13 +1,13 @@
 import React from 'react'
-import { FlatList } from 'react-native'
+import { FlatList, Modal, View,Text } from 'react-native'
+import NewAccount from '../modal-windows/new-account-modal-window/NewAccount'
+import ModifiedAccount from '../modal-windows/modified-account-modal-window/ModifiedAccount'
 
 import Actual from '../actual/Actual'
 import Total from '../total/Total'
 import Header from '../header/Header'
 import Accounts from '../accounts/Accounts'
 import { MemoizedModalWindowBottom } from '../../../components/modal-windows/modal-window-bottom/ModalWindowBottom'
-import NewAccount from '../modal-windows/new-account-modal-window/NewAccount'
-import ModifiedAccount from '../modal-windows/modified-account-modal-window/ModifiedAccount'
 
 import { useAppContext } from '../../../../AppProvider'
 import { useHomeContext } from './HomeProvider'
@@ -43,6 +43,7 @@ const HomeWrapper = () => {
 			/>
 			<MemoizedModalWindowBottom visible={ newAccountVisible } contentHeight={ 350 }><NewAccount /></MemoizedModalWindowBottom>
 			<MemoizedModalWindowBottom visible={ modifiedAccountVisible } contentHeight={ 350 }><ModifiedAccount /></MemoizedModalWindowBottom>
+
 		</>
 	)
 }

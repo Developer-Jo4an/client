@@ -14,7 +14,9 @@ export const styles = {
 		backgroundColor: animation.interpolate({
 			inputRange: [0, 1],
 			outputRange: ['rgba(0, 0, 0, 0.0)', 'rgba(0, 0, 0, 0.6)']
-		})
+		}),
+
+		zIndex: 9999999999999
 	}),
 	newAccountModalWindowCloseSpace: {
 		flexGrow: 1,
