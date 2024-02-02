@@ -1,5 +1,4 @@
 import { SCREEN_WIDTH } from '../../../constants/variableConstants'
-import { GRAY_BACKGROUND } from '../../../constants/styleConstants'
 
 export const styles = {
 	accountsAccounts: {
@@ -23,14 +22,5 @@ export const styles = {
 		fontSize: 24,
 
 		fontWeight: 600
-	},
-	accountsWrapper: {
-		borderRadius: 10,
-
-		backgroundColor: GRAY_BACKGROUND,
-
-		padding: 10,
-
-		gap: 10,
 	}
 }

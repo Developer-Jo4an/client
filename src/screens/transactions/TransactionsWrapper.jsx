@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Filter from '../../components/filter/Filter'
+
 import { useAppContext } from '../../../AppProvider'
 import { FlatList, View } from 'react-native'
 
@@ -11,7 +13,7 @@ const TransactionsWrapper = () => {
 	const { avatar, accounts, nickname, subscriptionLevel } = userState
 
 	const transactionsComponents = [
-		{ key: '1', component: <View></View> }
+		{ key: 'first', component: <View></View> }
 	]
 
 	return (
@@ -20,6 +22,7 @@ const TransactionsWrapper = () => {
 				data={ transactionsComponents }
 				renderItem={ ({ item }) => item.component }
 				keyExtractor={ item => item.key }
+				ListHeaderComponent={ () => <Filter /> }
 				stickyHeaderIndices={ [0] }
 				nestedScrollEnabled={ true }
 				showsVerticalScrollIndicator={ false }

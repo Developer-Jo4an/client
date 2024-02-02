@@ -7,7 +7,7 @@ export const useRequest = (tryCallback, finallyCallback, isLoading = false) => {
 
 	const request = async () => {
 		try {
-			setLoad(true)
+			if (!load) setLoad(true)
 			await tryCallback()
 		}
 		catch (e) { setError(e.message) }

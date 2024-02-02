@@ -3,7 +3,7 @@ import { DARK_GREEN_COLOR, GREEN_COLOR } from './styleConstants'
 // constants for application
 
 export const PORT = '5000'
-export const IP = '192.168.1.66'
+export const IP = '192.168.1.122'
 export const DOMAIN = `http://${IP}:${PORT}`
 export const USER_ID = '64df628be6b9b3d99d542be5'
 export const ENCRYPTED_ID = '260627062003200315265252'

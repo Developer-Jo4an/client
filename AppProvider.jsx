@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer } from 'react'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
 
 import OpaqueLoader from './src/components/loaders/opaque-loader/OpaqueLoader'
 import Error from './src/screens/error/general/Error'
@@ -33,12 +33,15 @@ const AppProvider = ({ children }) => {
 		request()
 	}, [])
 
+	const filterDate = useState(new Date())
+
 	if (load) return <OpaqueLoader />
-	if (error) return <Error error={ error } reloadFunction={ getUserInfoRequest }/>
+	if (error) return <Error error={ error } reloadFunction={ getUserInfoRequest } />
 
 	return (
 		<AppContext.Provider value={{
-			user: [userState, userDispatch]
+			user: [userState, userDispatch],
+			filterDate: filterDate
 		}}>{ children }</AppContext.Provider>
 	)
 }

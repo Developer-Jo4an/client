@@ -1,6 +1,6 @@
 import { DARK_GOLD_COLOR, DARK_GREEN_COLOR, GOLD_COLOR, GREEN_COLOR } from '../../../constants/styleConstants'
 import { SCREEN_WIDTH } from '../../../constants/variableConstants'
-import {StatusBar} from 'react-native';
+import { StatusBar } from 'react-native'
 
 export const styles = {
 	headerContainer: {

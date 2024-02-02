@@ -1,34 +1,29 @@
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../constants/variableConstants'
+import { MODAL_WINDOW_BACKGROUND, OPACITY_BACKGROUND } from '../../../constants/styleConstants'
 
 export const styles = {
-	modalWindowBottom: (animation, isVisible) => ({
-		width: SCREEN_WIDTH,
-		height: SCREEN_HEIGHT,
+    modalWindowBottom: (isVisible, animation) => ({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
 
-		justifyContent: 'flex-end',
+        pointerEvents: isVisible ? 'auto' : 'none',
 
-		position: 'absolute',
-		bottom: 0,
-		pointerEvents: isVisible ? 'auto' : 'none',
+        overflow: 'hidden',
 
-		backgroundColor: animation.interpolate({
-			inputRange: [0, 1],
-			outputRange: ['rgba(0, 0, 0, 0.0)', 'rgba(0, 0, 0, 0.6)']
-		}),
-
-		zIndex: 9999999999999
-	}),
-	newAccountModalWindowCloseSpace: {
-		flexGrow: 1,
-
-		backgroundColor: 'red'
-	},
-	modalWindowBottomWrapper: (animation, contentHeight) => ({
-		transform: [{
-			translateY: animation.interpolate({
-				inputRange: [0, 1],
-				outputRange: [contentHeight, 0]
-			})
-		}]
-	})
+        backgroundColor: animation.interpolate({
+            inputRange: [0, 1],
+            outputRange: [OPACITY_BACKGROUND, MODAL_WINDOW_BACKGROUND]
+        })
+    }),
+    modalWindowBottomCloseField: {
+        flexGrow: 1,
+    },
+    modalWindowBottomContent: (animation, contentHeight) => ({
+        transform: [{ translateY: animation.interpolate({
+            inputRange: [0, 1],
+            outputRange: [contentHeight, 0]
+        }) }]
+    })
 }
