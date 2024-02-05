@@ -1,4 +1,4 @@
-import { GRAY_BACKGROUND } from '../../constants/styleConstants'
+import { GRAY_BACKGROUND } from '../../../constants/styleConstants'
 
 export const styles = {
 	transactionsScreenContainer: {

@@ -5,6 +5,8 @@ import Error from './src/screens/error/general/Error'
 
 import { useRequest } from './src/hooks/useRequest'
 import { RequestService } from './src/service/RequestService'
+import { dateEndOf, dateStartOf, monthPeriod, sixMonthPeriod, weekPeriod } from './src/constants/functionConstants'
+import moment from 'moment'
 
 const AppContext = React.createContext()
 export const useAppContext = () => useContext(AppContext)
@@ -16,6 +18,24 @@ const userReducer = (state, action) => {
 		default : return state
 	}
 }
+
+const filterDateReducer = (state, action) => {
+	switch (action.type) {
+		case 'set-start-date' : return [action.startDate, state[1]]
+		case 'set-end-date' : return [state[0], action.endDate]
+		case 'set-one-day' : return [dateStartOf(action.date), dateEndOf(action.date)]
+		case 'set-today' : return [dateStartOf(new Date()), dateEndOf(new Date())]
+		case 'set-week' : return [weekPeriod(new Date()), dateStartOf(new Date())]
+		case 'set-month' : return [monthPeriod(new Date()), dateStartOf(new Date())]
+		case 'set-six-month' : return [sixMonthPeriod(new Date()), dateStartOf(new Date())]
+		case 'set-all-time' : return [moment('1970-01-01'), dateEndOf(new Date())]
+	}
+}
+
+export const defaultFilterDate = [
+	weekPeriod(new Date()),
+	dateStartOf(new Date())
+]
 
 const AppProvider = ({ children }) => {
 
@@ -33,7 +53,8 @@ const AppProvider = ({ children }) => {
 		request()
 	}, [])
 
-	const filterDate = useState(new Date())
+	const filterDate = useReducer(filterDateReducer, defaultFilterDate)
+	const filterDateVisible = useState(false)
 
 	if (load) return <OpaqueLoader />
 	if (error) return <Error error={ error } reloadFunction={ getUserInfoRequest } />
@@ -41,7 +62,8 @@ const AppProvider = ({ children }) => {
 	return (
 		<AppContext.Provider value={{
 			user: [userState, userDispatch],
-			filterDate: filterDate
+			filterDate,
+			filterDateVisible
 		}}>{ children }</AppContext.Provider>
 	)
 }

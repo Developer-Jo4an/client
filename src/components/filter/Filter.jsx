@@ -1,24 +1,25 @@
 import React from 'react'
-import { TouchableNativeFeedback, View, Text } from 'react-native'
-import DatePicker from 'react-native-date-picker'
+import { TouchableNativeFeedback, View } from 'react-native'
 
+import ModalWindowBottom from '../modal-windows/modal-window-bottom/ModalWindowBottom'
+import FilterDateInfo from './filter-date-info/FilterDateInfo'
+
+import { useAppContext } from '../../../AppProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCalendar, faSliders } from '@fortawesome/free-solid-svg-icons'
+import { Calendar } from 'react-native-calendars'
+import { faSliders } from '@fortawesome/free-solid-svg-icons'
 
 import { styles } from './styles'
-import FilterDateInfo from './filter-date-info/FilterDateInfo';
 
 const Filter = () => {
+
+    const { filterDateVisible, filterDate } = useAppContext()
+
     return (
         <View style={ styles.filterContainer }>
             <View style={ styles.filterWrapper }>
                 <View style={ styles.filterSelectDate }>
-                    <TouchableNativeFeedback>
-                        <View style={ styles.filterDateWrapper }>
-                            <FontAwesomeIcon icon={ faCalendar } size={ 22 } color={ '#000' }/>
-                            <FilterDateInfo />
-                        </View>
-                    </TouchableNativeFeedback>
+                    <FilterDateInfo filterDateVisible={ filterDateVisible } filterDate={ filterDate } />
                 </View>
                 <View style={ styles.filterSelectSort }>
                     <TouchableNativeFeedback>

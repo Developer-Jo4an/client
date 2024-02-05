@@ -1,7 +1,7 @@
 import { MODAL_WINDOW_BACKGROUND } from '../../../constants/styleConstants'
 
 export const styles = {
-    modalWindowBottom: (isVisible, animation) => ({
+    modalWindowCenter: (isVisible, animation) => ({
         position: 'absolute',
         top: 0,
         left: 0,
@@ -16,13 +16,12 @@ export const styles = {
 
         backgroundColor: MODAL_WINDOW_BACKGROUND
     }),
-    modalWindowBottomCloseField: {
-        flexGrow: 1,
+    modalWindowCenterWrapper: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    modalWindowBottomContent: (animation, contentHeight) => ({
-        transform: [{ translateY: animation.interpolate({
-            inputRange: [0, 1],
-            outputRange: [contentHeight, 0]
-        }) }]
+    modalWindowCenterContent: contentWidth => ({
+        width: contentWidth,
     })
 }

@@ -1,23 +1,22 @@
 import React from 'react'
-
-import Filter from '../../components/filter/Filter'
-
-import { useAppContext } from '../../../AppProvider'
 import { FlatList, View } from 'react-native'
+import { PortalHost } from '@gorhom/portal'
+import Filter from '../../../components/filter/Filter'
+import AddTransactionsBtn from '../add-transactions-btn/AddTransactionsBtn'
+
+import { useAppContext } from '../../../../AppProvider'
 
 import { styles } from './styles'
 
 const TransactionsWrapper = () => {
-	const { user } = useAppContext()
-	const [userState, _] = user
-	const { avatar, accounts, nickname, subscriptionLevel } = userState
+	const { filterDateVisible, filterDate } = useAppContext()
 
 	const transactionsComponents = [
-		{ key: 'first', component: <View></View> }
+		{ key: 'Add-transaction-btn', component: <AddTransactionsBtn /> },
 	]
 
 	return (
-		<>
+		<PortalHost name={'transactions-page'}>
 			<FlatList
 				data={ transactionsComponents }
 				renderItem={ ({ item }) => item.component }
@@ -29,7 +28,7 @@ const TransactionsWrapper = () => {
 				style={ styles.transactionsScreenContainer }
 				contentContainerStyle={ styles.transactionsScreenContent }
 			/>
-		</>
+		</PortalHost>
 	)
 }
 
