@@ -5,8 +5,8 @@ export const styles = {
     filterContainer: {
         width: SCREEN_WIDTH,
         paddingTop: StatusBar.currentHeight + 10,
-        paddingLeft: 20,
-        paddingRight: 20,
+        paddingLeft: 10,
+        paddingRight: 10,
         paddingBottom: 10,
         backgroundColor: '#fff',
 
@@ -23,16 +23,6 @@ export const styles = {
         borderRadius: 20,
 
         overflow: 'hidden'
-    },
-    filterDateWrapper: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 10,
-
-        padding: 10,
-    },
-    filterDateInfo: {
-        fontWeight: 600,
     },
     filterSortWrapper: {
         padding: 10

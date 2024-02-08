@@ -23,6 +23,8 @@ export const styles = {
         transform: [{ translateY: animation.interpolate({
             inputRange: [0, 1],
             outputRange: [contentHeight, 0]
-        }) }]
+        }) }],
+
+        opacity: animation
     })
 }

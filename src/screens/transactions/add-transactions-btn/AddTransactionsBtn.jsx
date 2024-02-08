@@ -16,7 +16,7 @@ const AddTransactionsBtn = () => {
     const leftPosition = SCREEN_WIDTH - 80
 
     return (
-        <FixedAddBtn callback={ callback } position={{ top: topPosition, left: leftPosition }} hostName={ 'transactions-page' }/>
+        <FixedAddBtn callback={ callback } position={{ top: topPosition, left: leftPosition }} hostName={ 'transactions-host' }/>
     )
 }
 

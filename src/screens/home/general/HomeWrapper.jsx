@@ -1,6 +1,6 @@
 import React from 'react'
 import { FlatList } from 'react-native'
-import { PortalProvider } from '@gorhom/portal'
+import {PortalHost, PortalProvider} from '@gorhom/portal'
 
 import Actual from '../actual/Actual'
 import Total from '../total/Total'
@@ -25,17 +25,21 @@ const HomeWrapper = () => {
 	]
 
 	return (
-		<FlatList
-			data={ homeComponents }
-			renderItem={ ({ item }) => item.component }
-			keyExtractor={ item => item.key }
-			ListHeaderComponent={ () => <Header avatar={ avatar } nickname={ nickname } subscriptionLevel={ subscriptionLevel } /> }
-			stickyHeaderIndices={ [0] }
-			nestedScrollEnabled={ true }
-			showsVerticalScrollIndicator={ false }
-			style={ styles.homeScreenContainer }
-			contentContainerStyle={ styles.homeScreenContent }
-		/>
+		<>
+			<FlatList
+				data={ homeComponents }
+				renderItem={ ({ item }) => item.component }
+				keyExtractor={ item => item.key }
+				ListHeaderComponent={ () => <Header avatar={ avatar } nickname={ nickname } subscriptionLevel={ subscriptionLevel } /> }
+				stickyHeaderIndices={ [0] }
+				nestedScrollEnabled={ true }
+				showsVerticalScrollIndicator={ false }
+				style={ styles.homeScreenContainer }
+				contentContainerStyle={ styles.homeScreenContent }
+			/>
+			<PortalHost name={'home-host'} />
+		</>
+
 	)
 }
 

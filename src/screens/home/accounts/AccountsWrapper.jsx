@@ -32,7 +32,7 @@ const AccountsWrapper = ({ accounts }) => {
 				modifiedAccountVisible={ modifiedAccountVisible }
 				modifiedAccount={ modifiedAccount }
 			/>
-			<ModalWindowBottom visible={ newAccountVisible } contentHeight={ 350 }>
+			<ModalWindowBottom visible={ newAccountVisible } contentHeight={ 350 } hostName={'application-host'}>
 				<NewAccount
 					newAccount={ newAccount }
 					newAccountVisible={ newAccountVisible }
@@ -40,7 +40,7 @@ const AccountsWrapper = ({ accounts }) => {
 					newAccountCountRef= { newAccountCountRef }
 				/>
 			</ModalWindowBottom>
-			<ModalWindowBottom visible={ modifiedAccountVisible } contentHeight={ 350 }>
+			<ModalWindowBottom visible={ modifiedAccountVisible } contentHeight={ 350 } hostName={'application-host'}>
 				<ModifiedAccount
 					modifiedAccount={ modifiedAccount }
 					modifiedAccountVisible={ modifiedAccountVisible }

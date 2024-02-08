@@ -1,41 +1,49 @@
 import React, { memo } from 'react'
 import { Text, TouchableNativeFeedback, View } from 'react-native'
 
+import FilterDateArrows from './FilterDateArrows'
+
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 import { compareDates } from '../../../constants/functionConstants'
 
-import { styles } from '../styles'
+import { styles } from './styles'
 
-const FilterDateInfo = memo(({ filterDateVisible, filterDate }) => {
+const FilterDateInfo = memo(({ periodVisible, period }) => {
 
-    const [isFilterDateVisible, setFilterDateVisible] = filterDateVisible
-    const [filterDateValue, setFilterDateValue] = filterDate
+    const [_, setPeriodVisible] = periodVisible
+    const [periodState, __] = period
 
 
     const formattedDate = date => {
         const [startDate, endDate] = date
 
+        if (startDate.isSame(moment('1970-01-01'))) return 'Ꝏ'
+
         const result = moment(startDate).isSame(moment(endDate), 'day')
 
-        if (result) return new Date(startDate).toLocaleDateString()
-        return `${new Date(startDate).toLocaleDateString()} - ${new Date(endDate).toLocaleDateString()}`
+        if (result) return startDate.format('DD.MM.YY')
+        return `${startDate.format('DD.MM.YY')} - ${endDate.format('DD.MM.YY')}`
     }
 
     return (
-        <TouchableNativeFeedback onPress={ () => setFilterDateVisible(true) }>
-            <View style={ styles.filterDateWrapper }>
-                <FontAwesomeIcon icon={ faCalendar } size={ 22 } color={ '#000' }/>
-                <Text style={ styles.filterDateInfo }>{ formattedDate(filterDateValue) }</Text>
+        <View style={ styles.filterPeriodContainer }>
+            <View style={ styles.filterPeriodWrapper }>
+                <TouchableNativeFeedback onPress={ () => setPeriodVisible(true) }>
+                    <View style={ styles.filterPeriodInfo }>
+                        <FontAwesomeIcon icon={ faCalendar } size={ 22 } color={ '#000' }/>
+                        <Text numberOfLines={ 1 } ellipsizeMode={ 'clip' } style={ styles.filterDateInfo }>{ formattedDate(periodState) }</Text>
+                    </View>
+                </TouchableNativeFeedback>
             </View>
-        </TouchableNativeFeedback>
+            <FilterDateArrows />
+        </View>
     )
 }, (prev, next) =>
     (
-        prev.filterDateVisible[0] === next.filterDateVisible[1] &&
-        compareDates(prev.filterDate[0], next.filterDate[0]) &&
-        compareDates(prev.filterDate[1], next.filterDate[1])
+        compareDates(prev.period[0], next.period[0]) &&
+        compareDates(prev.period[1], next.period[1])
     )
 )
 
