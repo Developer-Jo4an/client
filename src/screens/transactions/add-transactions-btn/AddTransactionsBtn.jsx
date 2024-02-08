@@ -4,6 +4,7 @@ import { Alert } from 'react-native'
 import FixedAddBtn from '../../../UI/buttons/fixed-add-btn/fixed-add-btn'
 
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../constants/variableConstants'
+
 import { styles } from './styles'
 
 const AddTransactionsBtn = () => {

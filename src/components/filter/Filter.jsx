@@ -11,15 +11,13 @@ import { faSliders } from '@fortawesome/free-solid-svg-icons'
 
 import { styles } from './styles'
 
-const Filter = () => {
-
-    const { filterDateVisible, filterDate } = useAppContext()
+const Filter = ({ datepickerVisible, filterDate }) => {
 
     return (
         <View style={ styles.filterContainer }>
             <View style={ styles.filterWrapper }>
                 <View style={ styles.filterSelectDate }>
-                    <FilterDateInfo filterDateVisible={ filterDateVisible } filterDate={ filterDate } />
+                    <FilterDateInfo filterDateVisible={ datepickerVisible } filterDate={ filterDate } />
                 </View>
                 <View style={ styles.filterSelectSort }>
                     <TouchableNativeFeedback>

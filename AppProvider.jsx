@@ -25,9 +25,9 @@ const filterDateReducer = (state, action) => {
 		case 'set-end-date' : return [state[0], action.endDate]
 		case 'set-one-day' : return [dateStartOf(action.date), dateEndOf(action.date)]
 		case 'set-today' : return [dateStartOf(new Date()), dateEndOf(new Date())]
-		case 'set-week' : return [weekPeriod(new Date()), dateStartOf(new Date())]
-		case 'set-month' : return [monthPeriod(new Date()), dateStartOf(new Date())]
-		case 'set-six-month' : return [sixMonthPeriod(new Date()), dateStartOf(new Date())]
+		case 'set-week' : return [weekPeriod(new Date()), dateEndOf(new Date())]
+		case 'set-month' : return [monthPeriod(new Date()), dateEndOf(new Date())]
+		case 'set-six-month' : return [sixMonthPeriod(new Date()), dateEndOf(new Date())]
 		case 'set-all-time' : return [moment('1970-01-01'), dateEndOf(new Date())]
 	}
 }

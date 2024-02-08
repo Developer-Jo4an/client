@@ -16,7 +16,7 @@ export default function App() {
 	return (
 		<AppProvider>
 			<SafeAreaView style={{ flex: 1 }}>
-				<PortalProvider >
+				<PortalProvider>
 					<NavigationContainer>
 							<Tab.Navigator tabBar={ props => <Navigation {...props} /> }>
 								<Tab.Screen name={ 'Home' } component={ Home } options={{ headerShown: false }} />
@@ -24,7 +24,7 @@ export default function App() {
 								<Tab.Screen name={ 'Transactions' } component={ Transactions } options={{ headerShown: false }} />
 							</Tab.Navigator>
 					</NavigationContainer>
-					<StatusBar translucent={ true } barStyle={ 'dark-content'} backgroundColor={ 'transparent' }/>
+					<StatusBar translucent={ true } barStyle={ 'dark-content' } backgroundColor={ 'transparent' }/>
 				</PortalProvider>
 			</SafeAreaView>
 		</AppProvider>
