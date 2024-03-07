@@ -1,40 +1,40 @@
-import React, { memo } from 'react'
+import { memo, useCallback } from 'react'
 import { FlatList, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { MemoizedColorCircle } from '../../../../../../components/color-circle/ColorCircle'
+import { newAccountAccountSignColorSelector, newAccountAddColor } from '../../../../../../redux/slices/newAccountSlice'
+
+import ColorCircle from '../../../../../../components/color-circle/ColorCircle'
 
 import { CIRCLE_COLORS } from '../../../../../../constants/variableConstants'
 
 import { styles } from './styles'
 
-const NewAccountColor = memo(({ newAccount }) => {
+const MemoizedColorCircle = memo(ColorCircle)
 
-	const [newAccountState, newAccountDispatch] = newAccount
+const NewAccountColor = () => {
+	const dispatch = useDispatch()
+	const newAccountColor = useCallback(color => dispatch(newAccountAddColor(color)), [])
 
-    const changeColor = item => newAccountDispatch({ type: 'set-color', accountSignColor: item })
+	const newAccountActiveColor = useSelector(newAccountAccountSignColorSelector)
 
-    return (
-        <View style={ styles.newAccountColorContainer }>
-            <FlatList
-                data={ CIRCLE_COLORS }
-                renderItem={ ({ item }) =>
-                    <MemoizedColorCircle
-                        callback={ changeColor }
-                        colorList={ item }
-                        state={ newAccountState.accountSignColor }
-                    />
-                }
-                keyExtractor={ (_, index) => index.toString() }
-                horizontal={ true }
-                contentContainerStyle={ styles.newAccountContent }
-            />
-        </View>
-    )
-}, (prev, next) =>
-    (
-        prev.newAccount[0].accountSignColor[0] === next.newAccount[0].accountSignColor[0] &&
-        prev.newAccount[0].accountSignColor[1] === next.newAccount[0].accountSignColor[1]
-    )
-)
+	return (
+		<View style={ styles.newAccountColorContainer }>
+			<FlatList
+				data={ CIRCLE_COLORS }
+				renderItem={ ({ item }) => {
+					let isActive
+					if (!newAccountActiveColor.length) isActive = false
+					else isActive = item[0] === newAccountActiveColor[0] && item[1] === newAccountActiveColor[1]
+					return <MemoizedColorCircle colors={ item } callback={ newAccountColor } isActive={ isActive } />
+				} }
+				keyExtractor={ colors => colors[0] + colors[1] }
+				style={ styles.newAccountColorListWrapper }
+				contentContainerStyle={ styles.newAccountColorList }
+				horizontal={ true }
+			/>
+		</View>
+	)
+}
 
 export default NewAccountColor

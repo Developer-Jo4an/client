@@ -1,19 +1,21 @@
+import { SCREEN_WIDTH } from '../../../../../../constants/variableConstants'
 import { GREEN_COLOR } from '../../../../../../constants/styleConstants'
 
 export const styles = {
-	modifiedAccountCountContainer: {
-		paddingLeft: 20,
-		paddingRight: 20,
+	modifiedAccountCountInputWrapper: {
+		alignItems: 'center',
 	},
-	modifiedAccountInput: {
+	modifiedAccountCountInput: {
+		width: SCREEN_WIDTH - 20,
 		height: 60,
 
-		borderRadius: 10,
+		borderRadius: 12,
 
-		borderStyle: 'solid',
 		borderWidth: 2,
+		borderStyle: 'solid',
 		borderColor: GREEN_COLOR,
 
-		padding: 10
+		paddingLeft: 14,
+		paddingRight: 14
 	}
 }

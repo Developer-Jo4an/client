@@ -1,79 +1,53 @@
-import React, { memo } from 'react'
+import React from 'react'
+import { View, Pressable } from 'react-native'
 
-import { View, Image, Pressable, TouchableNativeFeedback, Text } from 'react-native'
-import { Buffer } from 'buffer'
-import { LinearGradient } from 'expo-linear-gradient'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faBell, faGear } from '@fortawesome/free-solid-svg-icons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+
+import HeaderAvatar from './header-avatar/HeaderAvatar'
+import HeaderNickname from './header-nickname/HeaderNickname'
+import HeaderSubLvl from './header-sub-lvl/HeaderSubLvl'
 
 import { styles } from './styles'
+import {OPACITY_BACKGROUND} from '../../../constants/styleConstants';
 
-const Header = memo(({ avatar, nickname, subscriptionLevel }) => {
+const Header = () => {
 
 	return (
 		<View style={ styles.headerContainer }>
 			<View style={ styles.headerWrapper }>
 				<View style={ styles.headerUserInfo }>
-					<Pressable onPress={() => {}}>
-						<View style={ styles.headerAvatarWrapper(subscriptionLevel) }>
-							<Image
-								source={{ uri: `data:image/jpeg;base64,${Buffer.from(avatar).toString('base64')}` }}
-								style={ styles.headerAvatar }
-							/>
-							<View style={ styles.headerAvatarClickUI }>
-								<TouchableNativeFeedback><View style={ styles.headerAvatarClickUIView }></View></TouchableNativeFeedback>
-							</View>
-						</View>
+					<Pressable onPress={ () => {} }>
+						<HeaderAvatar />
 					</Pressable>
 					<View style={ styles.headerNicknameSubLvlWrapper }>
 						<View style={ styles.headerNicknameClickUI }>
-							<TouchableNativeFeedback onPress={() => {}}>
+							<Pressable onPress={ () => {} } android_ripple={{ color: OPACITY_BACKGROUND}}>
 								<View style={ styles.headerNicknameClickUIView }>
-									<Text style={ styles.headerNicknameValue }>@{ nickname }</Text>
-								</View>
-							</TouchableNativeFeedback>
+									<HeaderNickname /></View>
+							</Pressable>
 						</View>
-						<View style={ styles.headerSubLvlValueContainer }>
-							<LinearGradient
-								colors={ styles.subLvlColor(subscriptionLevel) }
-								// start={{ x: 0, y: 0.5 }}
-								// end={{ x: 1, y: 1 }}
-								locations={[0, 1]}
-							>
-								<TouchableNativeFeedback onPress={() => {}}>
-									<View style={ styles.headerSubLvlValueWrapper }>
-										<Text style={ styles.headerSubLvlValue }>{ subscriptionLevel.toUpperCase() }</Text>
-									</View>
-								</TouchableNativeFeedback>
-							</LinearGradient>
-						</View>
+						<View style={ styles.headerSubLvlValueContainer }><HeaderSubLvl/></View>
 					</View>
 				</View>
 				<View style={ styles.headerBtns }>
 					<View style={ styles.headerBtnContainer }>
-						<TouchableNativeFeedback onPress={() => {}}>
+						<Pressable onPress={ () => {} } android_ripple={{ color: OPACITY_BACKGROUND }}>
 							<View style={ styles.headerBtnWrapper }>
-								<FontAwesomeIcon icon={ faGear } size={ 20 } color={ '#000' }/>
+								<FontAwesome name={'gear'} size={ 20 } color={ '#000' }/>
 							</View>
-						</TouchableNativeFeedback>
+						</Pressable>
 					</View>
 					<View style={ styles.headerBtnContainer }>
-						<TouchableNativeFeedback onPress={() => {}}>
+						<Pressable onPress={ () => {} } android_ripple={{ color: OPACITY_BACKGROUND}}>
 							<View style={ styles.headerBtnWrapper }>
-								<FontAwesomeIcon icon={ faBell } size={ 20 } color={ '#000' }/>
+								<FontAwesome name={'bell'} size={ 18 } color={ '#000' }/>
 							</View>
-						</TouchableNativeFeedback>
+						</Pressable>
 					</View>
 				</View>
 			</View>
 		</View>
 	)
-}, (prev, next) => {
-	return (
-		prev.avatar.data.toString() === next.avatar.data.toString() &&
-		prev.nickname === next.nickname &&
-		prev.subscriptionLevel === next.subscriptionLevel
-	)
-})
+}
 
 export default Header

@@ -9,11 +9,9 @@ export const RED_COLOR = '#ee3a3a'
 export const SHADOW = '#eaeaea'
 export const OPACITY_BACKGROUND = 'rgba(0, 0, 0, 0)'
 export const MODAL_WINDOW_BACKGROUND = 'rgba(0, 0, 0, 0.6)'
-
-export const CALENDAR_STYLES = {
-    borderRadius: 20,
-    overflow: 'hidden'
-}
+export const BETWEEN_LINE = '#d7d5d5'
+export const ACTIVE_BACKGROUND = 'rgba(0, 0, 0, 0.1)'
+export const NO_CLICK_COLOR = 'rgba(255, 255, 255, 0)'
 
 export const CALENDAR_THEME = {
     backgroundColor: '#fff',
@@ -23,5 +21,6 @@ export const CALENDAR_THEME = {
     selectedDayTextColor: GREEN_COLOR,
     todayTextColor: ORANGE_COLOR,
     dayTextColor: '#2d4150',
-    textDisabledColor: '#dad7d7'
+    textDisabledColor: '#dad7d7',
+    arrowColor: GREEN_COLOR,
 }

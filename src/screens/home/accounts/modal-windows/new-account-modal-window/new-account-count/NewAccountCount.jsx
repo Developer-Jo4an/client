@@ -1,25 +1,32 @@
-import React, { memo } from 'react'
+import { useEffect, useRef } from 'react'
 import { TextInput, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { newAccountAddCount } from '../../../../../../redux/slices/newAccountSlice'
+import { userNewAccountIsLoadingSelector } from '../../../../../../redux/slices/user-slice/userSlice'
 
 import { styles } from './styles'
 
-const NewAccountCount = memo(({ newAccount, newAccountCountRef }) => {
+const NewAccountCount = () => {
+	const dispatch = useDispatch()
 
-	const [_, newAccountDispatch] = newAccount
+	const countInputRef = useRef()
+
+	const isLoading = useSelector(userNewAccountIsLoadingSelector)
+
+	useEffect(() => { isLoading && countInputRef.current.clear() }, [isLoading])
 
 	return (
-		<View style={ styles.newAccountCountContainer }>
+		<View style={ styles.newAccountCountInputWrapper }>
 			<TextInput
-				ref={ newAccountCountRef }
-				defaultValue={''}
-				maxLength={ 15 }
+				ref={ countInputRef }
+				style={ styles.newAccountCountInput }
 				placeholder={ 'Count' }
-				onChangeText={ text => newAccountDispatch({ type: 'set-count', count: text }) }
-				style={ styles.newAccountInput }
 				keyboardType={ 'numeric' }
+				onChangeText={ text => dispatch(newAccountAddCount(+text)) }
 			/>
 		</View>
 	)
-}, (prev, next) => prev.newAccount[0].count === next.newAccount[0].count)
+}
 
 export default NewAccountCount

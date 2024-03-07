@@ -1,13 +1,15 @@
-export const styles = {
-    newAccountColorContainer: {
-        alignItems: 'center',
-    },
-    newAccountContent: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 10,
+import { SCREEN_WIDTH } from '../../../../../../constants/variableConstants'
 
-        paddingLeft: 20,
-        paddingRight: 20,
-    }
+export const styles = {
+	newAccountColorContainer: {
+		alignItems: 'center',
+	},
+	newAccountColorListWrapper: {
+
+	},
+	newAccountColorList: {
+		gap: 10,
+		paddingLeft: 10,
+		paddingRight: 10,
+	}
 }

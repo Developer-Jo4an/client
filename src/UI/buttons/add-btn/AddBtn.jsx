@@ -1,19 +1,21 @@
 import React from 'react'
-import { TouchableNativeFeedback, View, Text } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import AntDesign from 'react-native-vector-icons/AntDesign'
+
+import { OPACITY_BACKGROUND } from '../../../constants/styleConstants'
+
 import { styles } from './styles'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const AddBtn = ({ callback }) => {
 	return (
 		<View style={ styles.addBtnContainer }>
-			<TouchableNativeFeedback onPress={ callback }>
+			<Pressable onPress={ callback } android_ripple={{ color: OPACITY_BACKGROUND }}>
 				<View style={ styles.addBtnWrapper } >
 					<Text style={ styles.addBtnText }>Add</Text>
-					<FontAwesomeIcon icon={ faPlus } size={ 16 } color={ '#fff' }/>
+					<AntDesign name={ 'plus' } size={ 16 } color={ '#fff' } />
 				</View>
-			</TouchableNativeFeedback>
+			</Pressable>
 		</View>
 	)
 }

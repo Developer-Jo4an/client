@@ -1,23 +1,31 @@
-import React, { memo } from 'react'
+import { useEffect, useRef } from 'react'
 import { TextInput, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { newAccountAddName } from '../../../../../../redux/slices/newAccountSlice'
+import { userNewAccountIsLoadingSelector } from '../../../../../../redux/slices/user-slice/userSlice'
 
 import { styles } from './styles'
 
-const NewAccountName = memo(({ newAccount, newAccountNameRef }) => {
+const NewAccountName = () => {
+	const dispatch = useDispatch()
 
-	const [_, newAccountDispatch] = newAccount
+	const nameInputRef = useRef()
+
+	const isLoading = useSelector(userNewAccountIsLoadingSelector)
+
+	useEffect(() => { isLoading && nameInputRef.current.clear() }, [isLoading])
 
 	return (
-		<View style={ styles.newAccountNameContainer }>
+		<View style={ styles.newAccountNameInputWrapper }>
 			<TextInput
-				ref={ newAccountNameRef }
-				maxLength={ 15 }
+				ref={ nameInputRef }
+				style={ styles.newAccountNameInput }
 				placeholder={ 'Name' }
-				onChangeText={ text => newAccountDispatch({ type: 'set-name', accountName: text })}
-				style={ styles.newAccountInput }
+				onChangeText={ text => dispatch(newAccountAddName(text)) }
 			/>
 		</View>
 	)
-}, (prev, next) => prev.newAccount[0].accountName === next.newAccount[0].accountName)
+}
 
 export default NewAccountName

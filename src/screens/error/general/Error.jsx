@@ -1,8 +1,9 @@
 import React from 'react'
-import { Text, TouchableNativeFeedback, View } from 'react-native'
+import { Text, Pressable, View } from 'react-native'
 
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faRotateRight } from '@fortawesome/free-solid-svg-icons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+
+import { OPACITY_BACKGROUND } from '../../../constants/styleConstants'
 
 import { styles } from './styles'
 
@@ -12,11 +13,11 @@ const Error = ({ error, reloadFunction }) => {
 		<View style={ styles.errorContainer }>
 			<Text style={ styles.errorInfo }>{ error }</Text>
 			<View style={ styles.errorReloadBtnContainer }>
-				<TouchableNativeFeedback background={TouchableNativeFeedback.Ripple()} onPress={ reloadFunction }>
+				<Pressable android_ripple={{ color: OPACITY_BACKGROUND }} onPress={ reloadFunction }>
 					<View style={ styles.errorReloadBtnWrapper }>
-						<FontAwesomeIcon icon={ faRotateRight } size={ 34 } color={ '#fff' } />
+						<FontAwesome name={ 'rotateRight' } size={ 34 } color={ '#fff' } />
 					</View>
-				</TouchableNativeFeedback>
+				</Pressable>
 			</View>
 		</View>
 	)

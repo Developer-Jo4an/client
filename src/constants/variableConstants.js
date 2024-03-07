@@ -1,9 +1,9 @@
 import { Dimensions } from 'react-native'
-import { DARK_GREEN_COLOR, GREEN_COLOR } from './styleConstants'
+import { DARK_GREEN_COLOR, GREEN_COLOR, GREEN_OPACITY_COLOR } from './styleConstants'
 // constants for application
 
 export const PORT = '5000'
-export const IP = '192.168.1.66'
+export const IP = '192.168.1.64'
 export const DOMAIN = `http://${IP}:${PORT}`
 export const USER_ID = '64df628be6b9b3d99d542be5'
 export const ENCRYPTED_ID = '260627062003200315265252'
@@ -35,3 +35,7 @@ export const CIRCLE_COLORS = [
     ['#007fff', '#0000ff'],
     ['#0000ff', '#8b00ff']
 ]
+
+export const EXTERNAL_DATE_SETTINGS = { color: GREEN_COLOR, textColor: '#fff' }
+export const EXTREME_DATE_SETTINGS = { color: GREEN_OPACITY_COLOR, textColor: '#fff' }
+export const ZERO_TIME = { hour: 0, minute: 0, second: 0, milliseconds: 0 }

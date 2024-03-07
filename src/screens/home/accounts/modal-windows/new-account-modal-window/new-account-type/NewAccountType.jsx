@@ -1,40 +1,40 @@
-import React, { memo, useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { Pressable, View, Animated } from 'react-native'
 import { Shadow } from 'react-native-shadow-2'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { newAccountAccountTypeSelector, newAccountAddType } from '../../../../../../redux/slices/newAccountSlice'
+import { useAnimation } from '../../../../../../hooks/useAnimation'
 
 import { SHADOW } from '../../../../../../constants/styleConstants'
 
 import { styles } from './styles'
 
-const NewAccountType = memo(({ newAccount }) => {
+const NewAccountType = () => {
+	const dispatch = useDispatch()
+	const newAccountType = useSelector(newAccountAccountTypeSelector)
 
-	const [newAccountState, newAccountDispatch] = newAccount
+	const [animation, animationFunc] = useAnimation(+(newAccountType === 'cash'))
 
-	const animation = useRef(new Animated.Value(+(newAccountState.accountType !== 'cash'))).current
+	const changeType = newType => dispatch(newAccountAddType(newType))
 
-	useEffect(() => {
-		Animated.timing(animation, {
-			toValue: +(newAccountState.accountType !== 'cash'),
-			duration: 200,
-			useNativeDriver: false
-		}).start()
-	}, [newAccountState.accountType])
+	useEffect(() => animationFunc(200), [newAccountType])
 
 	return (
 		<View style={ styles.newAccountTypeContainer }>
-			<Shadow distance={ 5 } startColor={ SHADOW }>
-				<View style={ styles.newAccountTypeWrapper }>
-					<Pressable style={{ zIndex: 1 }} onPress={ () => newAccountDispatch({ type: 'set-type', accountType: 'cash' }) }>
-						<View style={ styles.newAccountTypeToggle }><Animated.Text style={ styles.newAccountTypeTextCash(animation) }>CASH</Animated.Text></View>
+			<Shadow style={ styles.newAccountTypeShadow } distance={ 5 } startColor={ SHADOW }>
+				<View style={ styles.newAccountTypeWrapper}>
+					<Pressable style={ styles.newAccountTypeBtn } onPress={ () => changeType('cash') }>
+						<Animated.Text style={ styles.newAccountBtnValue(animation, 'cash') }>CASH</Animated.Text>
 					</Pressable>
-					<Pressable style={{ zIndex: 1 }} onPress={ () => newAccountDispatch({ type: 'set-type', accountType: 'card' }) }>
-						<View style={ styles.newAccountTypeToggle }><Animated.Text style={ styles.newAccountTypeTextCard(animation) }>CARD</Animated.Text></View>
+					<Pressable style={ styles.newAccountTypeBtn } onPress={ () => changeType('card') }>
+						<Animated.Text style={ styles.newAccountBtnValue(animation, 'card') }>CARD</Animated.Text>
 					</Pressable>
-					<Animated.View style={ styles.newAccountFocus(animation) }></Animated.View>
+					<Animated.View style={ styles.newAccountTypeIndicator(animation) }></Animated.View>
 				</View>
 			</Shadow>
 		</View>
 	)
-}, (prev, next) => prev.newAccount[0].accountType === next.newAccount[0].accountType)
+}
 
 export default NewAccountType

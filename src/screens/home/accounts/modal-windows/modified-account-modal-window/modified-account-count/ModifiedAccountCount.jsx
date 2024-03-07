@@ -1,24 +1,23 @@
-import React, { memo } from 'react'
+import { useRef } from 'react'
 import { TextInput, View } from 'react-native'
 
 import { styles } from './styles'
 
-const ModifiedAccountCount = memo(({ modifiedAccount }) => {
+const ModifiedAccountCount = () => {
 
-	const [modifiedAccountState, modifiedAccountDispatch] = modifiedAccount
+	const countInputRef = useRef()
 
 	return (
-		<View style={ styles.modifiedAccountCountContainer }>
+		<View style={ styles.modifiedAccountCountInputWrapper }>
 			<TextInput
-				defaultValue={ modifiedAccountState.count.toString() }
-				maxLength={ 15 }
+				ref={ countInputRef }
+				style={ styles.modifiedAccountCountInput }
 				placeholder={ 'Count' }
-				onChangeText={ text => modifiedAccountDispatch({ type: 'set-count', count: text }) }
-				style={ styles.modifiedAccountInput }
 				keyboardType={ 'numeric' }
+				onChangeText={ text => {} }
 			/>
 		</View>
 	)
-}, (prev, next) => prev.modifiedAccount[0].count === next.modifiedAccount[0].count)
+}
 
 export default ModifiedAccountCount

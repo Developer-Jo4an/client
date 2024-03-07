@@ -1,17 +1,14 @@
 export const styles = {
-	newAccountContainer: {
-		height: 350,
-
+	newAccountModalWindowContainer: {
+		height: 400,
 		justifyContent: 'space-between',
 
-		paddingTop: 10,
-		paddingBottom: 10,
-
-		borderTopRightRadius: 20,
 		borderTopLeftRadius: 20,
+		borderTopRightRadius: 20,
 
 		backgroundColor: '#fff',
 
-		gap: 10,
+		paddingTop: 10,
+		paddingBottom: 10
 	}
 }

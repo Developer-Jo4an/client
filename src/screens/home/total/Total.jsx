@@ -1,17 +1,17 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
+import TotalCount from './total-count/TotalCount'
+
 import { styles } from './styles'
 
-const Total = ({ accounts }) => {
-
-	const amount = accounts.reduce((acc, account) => acc + account.count, 0).toFixed(2)
+const Total = () => {
 
 	return (
 		<View style={ styles.totalContainer }>
 			<View style={ styles.totalHeader }><Text style={ styles.totalHeaderValue }>Total</Text></View>
 			<View style={ styles.totalInfo }>
-				<Text style={ styles.totalAmount(amount) }>{ amount } $</Text>
+				<TotalCount />
 				<Text style={ styles.totalInfoValue }>Sum of all cards</Text>
 			</View>
 		</View>

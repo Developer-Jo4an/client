@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text, Animated, Pressable } from 'react-native'
 
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faBarsStaggered, faChartSimple, faHome } from '@fortawesome/free-solid-svg-icons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+
 import { Shadow } from 'react-native-shadow-2'
 
 import { GREEN_COLOR, SHADOW } from '../../constants/styleConstants'
@@ -28,19 +28,19 @@ const Navigation = ({ state, descriptors, navigation }) => {
 		        <View style={ styles.navigationWrapper }>
 			        <Pressable onPress={ () => screenSwitch('Home') }>
 				        <View style={ styles.navigationItem(activeRouteName, 'Home') }>
-					        <FontAwesomeIcon icon={ faHome } size={ 22 } color={ activeRouteName === 'Home' ? GREEN_COLOR : '#000'} />
+					        <FontAwesome name={ 'home' } size={ 22 } color={ activeRouteName === 'Home' ? GREEN_COLOR : '#000'} />
 					        <Text style={ styles.navigationItemText(activeRouteName, 'Home') }>Home</Text>
 				        </View>
 			        </Pressable>
 			        <Pressable onPress={ () => screenSwitch('Analytics') }>
 				        <View style={ styles.navigationItem(activeRouteName, 'Analytics') }>
-					        <FontAwesomeIcon icon={ faChartSimple } size={ 22 } color={ activeRouteName === 'Analytics' ? GREEN_COLOR : '#000'} />
+					        <FontAwesome name={ 'bar-chart' } size={ 22 } color={ activeRouteName === 'Analytics' ? GREEN_COLOR : '#000'} />
 					        <Text style={ styles.navigationItemText(activeRouteName, 'Analytics') }>Analytics</Text>
 				        </View>
 			        </Pressable>
 			        <Pressable onPress={ () => screenSwitch('Transactions') }>
 				        <View style={ styles.navigationItem(activeRouteName, 'Transactions') }>
-					        <FontAwesomeIcon icon={ faBarsStaggered } size={ 22 } color={ activeRouteName === 'Transactions' ? GREEN_COLOR : '#000'} />
+					        <FontAwesome name={ 'bars' } size={ 22 } color={ activeRouteName === 'Transactions' ? GREEN_COLOR : '#000'} />
 					        <Text style={ styles.navigationItemText(activeRouteName, 'Transactions') }>Transactions</Text>
 				        </View>
 			        </Pressable>

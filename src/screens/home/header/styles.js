@@ -25,34 +25,6 @@ export const styles = {
 		alignItems: 'center',
 		gap: 10
 	},
-	headerAvatarWrapper: subLvl => ({
-		padding: 2,
-
-		borderStyle: 'solid',
-		borderWidth: 2,
-		borderColor: subLvl === 'Standard' ? GREEN_COLOR : GOLD_COLOR,
-		borderRadius: 32,
-
-		overflow: 'hidden'
-	}),
-	headerAvatar: {
-		width: 60,
-		height: 60,
-
-		borderRadius: 30,
-	},
-	headerAvatarClickUI: {
-		position: 'absolute',
-		top: 2,
-		left: 2,
-
-		borderRadius: 30,
-		overflow: 'hidden'
-	},
-	headerAvatarClickUIView: {
-		width: 60,
-		height: 60,
-	},
 	headerNicknameSubLvlWrapper: {
 		gap: 5,
 		alignItems: 'flex-start'
@@ -71,25 +43,11 @@ export const styles = {
 		paddingLeft: 4,
 		paddingRight: 4,
 	},
-	headerNicknameValue: {
-		fontWeight: 600,
-		fontSize: 18
-	},
+
 	headerSubLvlValueContainer: {
 		borderRadius: 10,
 
 		overflow: 'hidden'
-	},
-	subLvlColor: subLvl => subLvl === 'Standard' ? [GREEN_COLOR, DARK_GREEN_COLOR] : [GOLD_COLOR, DARK_GOLD_COLOR],
-	headerSubLvlValueWrapper: {
-		paddingTop: 4,
-		paddingLeft: 12,
-		paddingRight: 12,
-		paddingBottom: 4,
-	},
-	headerSubLvlValue: {
-		color: '#fff',
-		fontWeight: 600,
 	},
 	headerBtns: {
 		flexDirection: 'row',

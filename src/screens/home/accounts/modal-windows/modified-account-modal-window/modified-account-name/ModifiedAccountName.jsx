@@ -1,23 +1,24 @@
-import React, { memo } from 'react'
-import { TextInput, View } from 'react-native'
+import { useRef } from 'react'
+import { TextInput, View} from 'react-native'
+import { useDispatch } from 'react-redux'
 
 import { styles } from './styles'
 
-const ModifiedAccountName = memo(({ modifiedAccount }) => {
+const ModifiedAccountName = () => {
+	const dispatch = useDispatch()
 
-	const [modifiedAccountState, modifiedAccountDispatch] = modifiedAccount
+	const nameInputRef = useRef()
 
 	return (
-		<View style={ styles.modifiedAccountNameContainer }>
+		<View style={ styles.modifiedAccountNameInputWrapper }>
 			<TextInput
-				defaultValue={ modifiedAccountState.accountName }
-				maxLength={ 15 }
+				ref={ nameInputRef }
+				style={ styles.modifiedAccountNameInput }
 				placeholder={ 'Name' }
-				onChangeText={ text => modifiedAccountDispatch({ type: 'set-name', accountName: text })}
-				style={ styles.modifiedAccountInput }
+				onChangeText={ text => {} }
 			/>
 		</View>
 	)
-}, (prev, next) => prev.modifiedAccount[0].accountName === next.modifiedAccount[0].accountName)
+}
 
 export default ModifiedAccountName

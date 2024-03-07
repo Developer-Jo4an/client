@@ -1,22 +1,21 @@
 import React from 'react'
-import { TouchableNativeFeedback, View } from 'react-native'
+import { Pressable, View } from 'react-native'
 import { Shadow } from 'react-native-shadow-2'
 
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6'
 
-import { GREEN_COLOR, SHADOW } from '../../../constants/styleConstants'
+import { GREEN_COLOR, OPACITY_BACKGROUND, SHADOW } from '../../../constants/styleConstants'
 
 import { styles } from './styles'
 
 const ApplyBtn = ({ callback }) => {
     return (
         <Shadow style={ styles.applyBtnContainer } distance={ 5 } startColor={ SHADOW }>
-            <TouchableNativeFeedback onPress={ callback }>
+            <Pressable onPress={ callback } android_ripple={{ color: OPACITY_BACKGROUND }}>
                 <View style={ styles.applyBtnWrapper }>
-                    <FontAwesomeIcon icon={ faCheck } size={ 22 } color={ GREEN_COLOR } />
+                    <FontAwesome6 name={ 'check' } size={ 22 } color={ GREEN_COLOR } />
                 </View>
-            </TouchableNativeFeedback>
+            </Pressable>
         </Shadow>
     )
 }

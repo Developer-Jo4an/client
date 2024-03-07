@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5e271dd3-8188-4b85-ab2c-140a1b11932b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/account/filter-account/FilterAccount.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account/filter-account/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/category/filter-category/FilterCategory.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/category/filter-category/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-date-info/FilterDateArrows.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-date-info/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/FilterModalWindows.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-calendar/FilterCalendar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-calendar/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-period/FilterPeriod.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-period/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-sort/FilterSort.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-sort/filter-sort-accounts/FilterSortAccounts.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-sort/filter-sort-accounts/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-sort/filter-sort-expense/FilterSortExpense.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-sort/filter-sort-expense/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-sort/filter-sort-types/FilterSortTypes.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-sort/filter-sort-types/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-modal-windows/filter-sort/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filter/filter-provider/FilterProvider.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/AppProvider.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/Account.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/account/Account.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/account/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/filter/Filter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filter/Filter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/filter/filter-date-info/FilterDateInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filter/filter-date-info/FilterDateInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/filter/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filter/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal-windows/modal-window-bottom/ModalWindowBottom.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-windows/modal-window-bottom/ModalWindowBottom.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal-windows/modal-window-bottom/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-windows/modal-window-bottom/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal-windows/modal-window-center/ModalWindowCenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-windows/modal-window-center/ModalWindowCenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/functionConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/functionConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/styleConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/styleConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/variableConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/variableConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/home/accounts/AccountsWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/accounts/AccountsWrapper.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/home/accounts/accounts-tiles-wrapper/AccountsTilesWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/accounts/accounts-tiles-wrapper/AccountsTilesWrapper.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/home/accounts/modal-windows/modified-account-modal-window/modified-account-preview/ModifiedAccountPreview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/accounts/modal-windows/modified-account-modal-window/modified-account-preview/ModifiedAccountPreview.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/home/accounts/modal-windows/new-account-modal-window/new-account-preview/NewAccountPreview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/accounts/modal-windows/new-account-modal-window/new-account-preview/NewAccountPreview.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/home/actual/Test.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/home/general/HomeWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/general/HomeWrapper.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/transactions/add-transactions-btn/AddTransactionsBtn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/transactions/add-transactions-btn/AddTransactionsBtn.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/transactions/general/TransactionsWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/transactions/general/TransactionsWrapper.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2cHNMVw1dk0Spjy2h5ajUFNMWNI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/bonda/WebstormProjects/Expo-fingle/client",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e271dd3-8188-4b85-ab2c-140a1b11932b" name="Changes" comment="" />
+      <created>1707764496106</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707764496106</updated>
+      <workItem from="1707764497183" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

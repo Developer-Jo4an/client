@@ -2,45 +2,45 @@ import { GREEN_COLOR } from '../../../../../../constants/styleConstants'
 
 export const styles = {
 	newAccountTypeContainer: {
-		alignItems: 'center'
+		alignItems: 'center',
+	},
+	newAccountTypeShadow: {
+		borderRadius: 20,
+
+		overflow: 'hidden'
 	},
 	newAccountTypeWrapper: {
 		flexDirection: 'row',
 
-		borderRadius: 20,
-
 		backgroundColor: '#fff',
-
-		overflow: 'hidden'
 	},
-	newAccountTypeToggle: {
-		width: 60,
+	newAccountTypeBtn: {
+		width: 70,
 		height: 50,
 
 		justifyContent: 'center',
 		alignItems: 'center',
+
+		zIndex: 2
 	},
-	newAccountTypeTextCash: animation => ({
-		fontWeight: 600,
-
-		color: animation.interpolate({ inputRange: [0, 1], outputRange: ['#fff', '#000'] })
+	newAccountBtnValue: (animation, type) => ({
+		color: animation.interpolate({
+			inputRange: [0, 1],
+			outputRange: type === 'card' ? ['#fff', GREEN_COLOR] : [GREEN_COLOR, '#fff']
+		}),
+		fontWeight: 600
 	}),
-	newAccountTypeTextCard: animation => ({
-		fontWeight: 600,
-
-		color: animation.interpolate({ inputRange: [0, 1], outputRange: ['#000', '#fff'] })
-	}),
-	newAccountFocus: animation => ({
-		width: 60,
+	newAccountTypeIndicator: animation => ({
+		width: 70,
 		height: 50,
 
 		position: 'absolute',
 		top: 0,
-		left: 0,
-		transform: [{ translateX: animation.interpolate({
+		left: animation.interpolate({
 			inputRange: [0, 1],
-			outputRange: [0, 60]
-		}) }],
+			outputRange: [70, 0]
+		}),
+		zIndex: 1,
 
 		borderRadius: 20,
 

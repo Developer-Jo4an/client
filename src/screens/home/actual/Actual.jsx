@@ -1,7 +1,7 @@
-import React, { memo, useState } from 'react'
-import { View, Text, FlatList, Image, TouchableNativeFeedback } from 'react-native'
+import { useSelector } from 'react-redux'
+import {View, Text, FlatList, Image, Pressable} from 'react-native'
 
-import { styles } from './styles'
+import { userSubscriptionLevelSelector } from '../../../redux/slices/user-slice/userSlice'
 
 import Johan from '../../../images/actual-images/Johan.jpg'
 import Ichimaru from '../../../images/actual-images/Ichimaru.jpg'
@@ -11,24 +11,15 @@ import Sasuke from '../../../images/actual-images/Sasuke.jpg'
 import Di from '../../../images/actual-images/Di.jpg'
 import Kuroro from '../../../images/actual-images/Kuroro.jpg'
 
+import { OPACITY_BACKGROUND } from '../../../constants/styleConstants'
 
-const Actual = memo(({ subscriptionLevel }) => {
+import { styles } from './styles'
+
+const Actual = () => {
+
+	const subscriptionLevel = useSelector(userSubscriptionLevelSelector)
 
 	const actualData = [Johan, Ichimaru, Griffit, Aizen, Sasuke, Di, Kuroro]
-
-	const state = useState(false)
-
-
-	const actualComponent = img => {
-		return (
-			<View style={ styles.actualWrapper(subscriptionLevel) }>
-				<Image source={ img } style={ styles.actualImg }/>
-				<View style={ styles.actualClickUI }>
-					<TouchableNativeFeedback onPress={ () => state[1](prev => !prev) }><View style={ styles.actualClickUIView }></View></TouchableNativeFeedback>
-				</View>
-			</View>
-		)
-	}
 
 	return (
 		<View style={ styles.actualContainer }>
@@ -37,7 +28,16 @@ const Actual = memo(({ subscriptionLevel }) => {
 			</View>
 			<FlatList
 				data={ actualData }
-				renderItem={ ({ item }) => actualComponent(item) }
+				renderItem={ ({ item }) => (
+					<View style={ styles.actualWrapper(subscriptionLevel) }>
+						<Image source={ item } style={ styles.actualImg }/>
+						<View style={ styles.actualClickUI }>
+							<Pressable onPress={ () => {} } android_ripple={{ color: OPACITY_BACKGROUND}}>
+								<View style={ styles.actualClickUIView }></View>
+							</Pressable>
+						</View>
+					</View>
+				)}
 				keyExtractor={ (_, index) => index.toString() }
 				horizontal={ true }
 				style={ styles.actualListWrapper }
@@ -45,6 +45,6 @@ const Actual = memo(({ subscriptionLevel }) => {
 			/>
 		</View>
 	)
-}, (prev, next) => prev.subscriptionLevel === next.subscriptionLevel)
+}
 
 export default Actual
