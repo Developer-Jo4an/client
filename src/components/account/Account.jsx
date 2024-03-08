@@ -13,7 +13,7 @@ const Account = ({ account, callback }) => {
 
 	return (
 		<View style={ styles.account }>
-			<Pressable onPress={ callback } android_ripple={{ color: callback ? OPACITY_BACKGROUND : NO_CLICK_COLOR }}>
+			<Pressable onPress={ callback ? callback : () => {} } android_ripple={{ color: callback ? OPACITY_BACKGROUND : NO_CLICK_COLOR }}>
 				<View style={ styles.accountWrapper }>
 					<View style={ styles.accountInfoLeftPart }>
 						<View style={ styles.accountSignWrapper }>

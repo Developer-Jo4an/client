@@ -1,12 +1,13 @@
 import { SCREEN_WIDTH } from '../../../../../../constants/variableConstants'
 
 export const styles = {
-	newAccountButtons: {
+	modifiedAccountButtons: {
 		alignItems: 'center'
-
 	},
-	newAccountButtonsWrapper: {
+	modifiedAccountButtonsWrapper: {
 		width: SCREEN_WIDTH - 20,
-		alignItems: 'flex-end',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
 	}
 }

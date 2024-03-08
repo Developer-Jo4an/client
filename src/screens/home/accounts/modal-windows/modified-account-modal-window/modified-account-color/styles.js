@@ -1,11 +1,11 @@
 export const styles = {
-	newAccountColorContainer: {
+	modifiedAccountColorContainer: {
 		alignItems: 'center',
 	},
-	newAccountColorListWrapper: {
+	modifiedAccountColorListWrapper: {
 
 	},
-	newAccountColorList: {
+	modifiedAccountColorList: {
 		gap: 10,
 		paddingLeft: 10,
 		paddingRight: 10,

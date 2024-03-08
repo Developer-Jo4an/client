@@ -17,10 +17,11 @@ export const modifiedAccountSlice = createAsyncSlice({
 	name: 'modifiedAccount',
 	initialState,
 	selectors: {
-		modifiedAccountNameSelector: sliceState => sliceState.accountName.accountName,
-		modifiedAccountCountSelector: sliceState => sliceState.accountName.count,
-		modifiedAccountTypeSelector: sliceState => sliceState.accountName.accountType,
-		modifiedAccountColorSelector: sliceState => sliceState.accountName.accountSignColor,
+		modifiedAccountAccountSelector: sliceState =>  sliceState.account,
+		modifiedAccountNameSelector: sliceState => sliceState.account.accountName,
+		modifiedAccountCountSelector: sliceState => sliceState.account.count,
+		modifiedAccountTypeSelector: sliceState => sliceState.account.accountType,
+		modifiedAccountColorSelector: sliceState => sliceState.account.accountSignColor,
 	},
 	reducers: create => ({
 		modifiedAccountAddNameAction: create.reducer((state, action) => { state.account.accountName = action.payload }),
@@ -32,6 +33,7 @@ export const modifiedAccountSlice = createAsyncSlice({
 })
 
 export const {
+	modifiedAccountAccountSelector,
 	modifiedAccountNameSelector,
 	modifiedAccountCountSelector,
 	modifiedAccountTypeSelector,

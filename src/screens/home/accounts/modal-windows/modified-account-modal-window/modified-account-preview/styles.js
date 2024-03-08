@@ -1,12 +1,13 @@
 import { SCREEN_WIDTH } from '../../../../../../constants/variableConstants'
 
 export const styles = {
-	newAccountButtons: {
-		alignItems: 'center'
-
+	previewAccountContainer: {
+		alignItems: 'center',
 	},
-	newAccountButtonsWrapper: {
+	previewAccountShadow: {
 		width: SCREEN_WIDTH - 20,
-		alignItems: 'flex-end',
+		borderRadius: 12,
+
+		overflow: 'hidden',
 	}
 }

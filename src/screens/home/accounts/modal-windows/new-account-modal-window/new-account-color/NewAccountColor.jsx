@@ -14,9 +14,10 @@ const MemoizedColorCircle = memo(ColorCircle)
 
 const NewAccountColor = () => {
 	const dispatch = useDispatch()
-	const newAccountColor = useCallback(color => dispatch(newAccountAddColor(color)), [])
 
 	const newAccountActiveColor = useSelector(newAccountAccountSignColorSelector)
+
+	const newAccountColor = useCallback(color => dispatch(newAccountAddColor(color)), [])
 
 	return (
 		<View style={ styles.newAccountColorContainer }>
