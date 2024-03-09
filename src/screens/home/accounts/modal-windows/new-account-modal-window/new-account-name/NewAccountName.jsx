@@ -3,7 +3,7 @@ import { TextInput, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { newAccountAddName } from '../../../../../../redux/slices/newAccountSlice'
-import { userNewAccountIsLoadingSelector } from '../../../../../../redux/slices/user-slice/userSlice'
+import { userNewAccountIsLoadingSelector } from '../../../../../../redux/slices/user-slice/sub-new-account-slice/subNewAccountExports'
 
 import { styles } from './styles'
 

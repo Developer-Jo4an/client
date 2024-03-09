@@ -1,21 +1,22 @@
-import { useRef } from 'react'
-import { TextInput, View } from 'react-native'
+import { memo } from 'react'
+import { View } from 'react-native'
+import { useSelector } from 'react-redux'
+
+import { modifiedAccountCountSelector, modifiedAccountIdSelector } from '../../../../../../redux/slices/modifiedAccountSlice'
+
+import ModifiedAccountCountInput from './ModifiedAccountCountInput'
 
 import { styles } from './styles'
 
-const ModifiedAccountCount = () => {
+const MemoizedModifiedAccountCountInput = memo(ModifiedAccountCountInput, (prev, next) => prev.id === next.id)
 
-	const countInputRef = useRef()
+const ModifiedAccountCount = () => {
+	const modifiedAccountId = useSelector(modifiedAccountIdSelector)
+	const modifiedAccountCount = useSelector(modifiedAccountCountSelector)
 
 	return (
 		<View style={ styles.modifiedAccountCountInputWrapper }>
-			<TextInput
-				ref={ countInputRef }
-				style={ styles.modifiedAccountCountInput }
-				placeholder={ 'Count' }
-				keyboardType={ 'numeric' }
-				onChangeText={ text => {} }
-			/>
+			<MemoizedModifiedAccountCountInput id={ modifiedAccountId } count={ modifiedAccountCount } />
 		</View>
 	)
 }

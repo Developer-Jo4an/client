@@ -2,13 +2,12 @@ import { asyncThunkCreator, buildCreateSlice } from '@reduxjs/toolkit'
 
 import { UserRequestService } from '../../../services/UserRequestService'
 import { UserAsyncThunksHandler } from '../../../async-thunks-handler/UserAsyncThunksHandler'
-import { AccountsRequestService } from '../../../services/AccountsRequestService'
-import { AccountsAsyncThunkHandler } from '../../../async-thunks-handler/AccountsAsyncThunkHandler'
-import { initialNewAccountState, newAccountSelectors } from './subNewAccountSlice'
-import { initialModifiedAccountState, modifiedAccountSelectors } from './subModifiedAccountSlice'
+
+import { initialNewAccountState, newAccountActions, newAccountSelectors} from './sub-new-account-slice/subNewAccountSlice'
+import { initialModifiedAccountState, modifiedAccountActions, modifiedAccountSelectors } from './sub-modified-account-slice/subModifiedAccountSlice'
+import { deleteAccountActions, deleteAccountSelectors, initialDeleteAccountState } from "./sub-delete-account-slice/subDeleteAccountSlice"
 
 const createAsyncSlice = buildCreateSlice({ creators: { asyncThunk: asyncThunkCreator } })
-
 
 const initialState = {
 	user: {},
@@ -17,6 +16,7 @@ const initialState = {
 
 	...initialNewAccountState,
 	...initialModifiedAccountState,
+	...initialDeleteAccountState,
 }
 
 export const userSlice = createAsyncSlice({
@@ -36,30 +36,28 @@ export const userSlice = createAsyncSlice({
 
 		...newAccountSelectors,
 		...modifiedAccountSelectors,
+		...deleteAccountSelectors,
 	},
 	reducers: create => ({
+		// user
 		getUserInfo: create.asyncThunk(
 			UserRequestService.getUserInfo,
 			UserAsyncThunksHandler.getUserInfo
 		),
 
-		addNewAccount: create.asyncThunk(
-			AccountsRequestService.addAccount,
-			AccountsAsyncThunkHandler.addNewAccount
-		),
-		addNewAccountModal: create.reducer(state => {
-			state.addNewAccountModal = !state.addNewAccountModal
-		}),
+		// add new account
+		...newAccountActions(create),
 
-		modifiedAccountModalAction: create.reducer(state => {
-			state.modifiedAccountModal = !state.modifiedAccountModal
-		})
+		// modified account
+		...modifiedAccountActions(create),
+
+		// delete account
+		...deleteAccountActions(create)
 	})
 })
 
 export const {
 	userStateSelector,
-
 	userSelector,
 	userIsLoadingSelector,
 	userErrorSelector,
@@ -68,21 +66,8 @@ export const {
 	userAvatarSelector,
 	userNicknameSelector,
 	userSubscriptionLevelSelector,
-
-	userNewAccountIsLoadingSelector,
-	userAddNewAccountError,
-	userAddNewAccountModalSelector,
-
-	userModifiedAccountIsLoadingSelector,
-	userModifiedAccountErrorSelector,
-	userModifiedAccountModalSelector,
 } = userSlice.selectors
 
 export const {
-	getUserInfo,
-
-	addNewAccount,
-	addNewAccountModal,
-
-	modifiedAccountModalAction,
+	getUserInfo
 } = userSlice.actions

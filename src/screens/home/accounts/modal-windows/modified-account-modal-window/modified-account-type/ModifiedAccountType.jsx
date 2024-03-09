@@ -11,7 +11,6 @@ import { SHADOW } from '../../../../../../constants/styleConstants'
 import { styles } from './styles'
 
 const ModifiedAccountType = () => {
-
 	const dispatch = useDispatch()
 	const modifiedAccountType = useSelector(modifiedAccountTypeSelector)
 

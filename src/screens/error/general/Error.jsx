@@ -11,11 +11,11 @@ const Error = ({ error, reloadFunction }) => {
 
 	return (
 		<View style={ styles.errorContainer }>
-			<Text style={ styles.errorInfo }>{ error }</Text>
+			<Text style={ styles.errorInfo }>{ error.message }</Text>
 			<View style={ styles.errorReloadBtnContainer }>
 				<Pressable android_ripple={{ color: OPACITY_BACKGROUND }} onPress={ reloadFunction }>
 					<View style={ styles.errorReloadBtnWrapper }>
-						<FontAwesome name={ 'rotateRight' } size={ 34 } color={ '#fff' } />
+						<FontAwesome name={ 'rotate-right' } size={ 34 } color={ '#fff' } />
 					</View>
 				</Pressable>
 			</View>

@@ -1,7 +1,7 @@
 export const styles = {
 	modifiedAccountModalWindowContainer: {
 		height: 400,
-		gap: 10,
+		justifyContent: 'space-between',
 
 		borderTopLeftRadius: 20,
 		borderTopRightRadius: 20,

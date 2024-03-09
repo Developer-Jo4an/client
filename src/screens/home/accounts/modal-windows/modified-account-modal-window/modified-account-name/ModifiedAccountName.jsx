@@ -1,22 +1,22 @@
-import { useRef } from 'react'
-import { TextInput, View} from 'react-native'
-import { useDispatch } from 'react-redux'
+import { memo } from 'react'
+import { View } from 'react-native'
+import { useSelector } from 'react-redux'
+
+import { modifiedAccountIdSelector, modifiedAccountNameSelector } from "../../../../../../redux/slices/modifiedAccountSlice"
+
+import ModifiedAccountNameInput from "./ModifiedAccountNameInput"
 
 import { styles } from './styles'
 
-const ModifiedAccountName = () => {
-	const dispatch = useDispatch()
+const MemoizedModifiedAccountNameInput = memo(ModifiedAccountNameInput, (prev, next) => prev.id === next.id)
 
-	const nameInputRef = useRef()
+const ModifiedAccountName = () => {
+	const modifiedAccountId = useSelector(modifiedAccountIdSelector)
+	const modifiedAccountName = useSelector(modifiedAccountNameSelector)
 
 	return (
 		<View style={ styles.modifiedAccountNameInputWrapper }>
-			<TextInput
-				ref={ nameInputRef }
-				style={ styles.modifiedAccountNameInput }
-				placeholder={ 'Name' }
-				onChangeText={ text => {} }
-			/>
+			<MemoizedModifiedAccountNameInput id={ modifiedAccountId } name={ modifiedAccountName } />
 		</View>
 	)
 }

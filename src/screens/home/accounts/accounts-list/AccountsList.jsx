@@ -1,19 +1,16 @@
 import { memo } from 'react'
-import { FlatList, View, Text } from 'react-native'
+import { FlatList, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
-import {
-	modifiedAccountModalAction,
-	userAccountsSelector,
-	userModifiedAccountModalSelector
-} from '../../../../redux/slices/user-slice/userSlice'
+import { userAccountsSelector } from '../../../../redux/slices/user-slice/userSlice'
+import { modifiedAccountModalAction, userModifiedAccountModalSelector } from '../../../../redux/slices/user-slice/sub-modified-account-slice/subModifiedAccountExports'
+import { modifiedAccountSetAccount } from '../../../../redux/slices/modifiedAccountSlice'
 
 import Account from '../../../../components/account/Account'
 import ModalWindowBottom from '../../../../components/modal-windows/modal-window-bottom/ModalWindowBottom'
 import ModifiedAccountModalWindow from '../modal-windows/modified-account-modal-window/ModifiedAccountModalWindow'
 
 import { styles } from './styles'
-import { modifiedAccountSetAccount } from '../../../../redux/slices/modifiedAccountSlice'
 
 const MemoizedAccount = memo(Account, (prev, next) => {
 	return (

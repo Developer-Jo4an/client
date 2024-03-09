@@ -9,6 +9,7 @@ import { OPACITY_BACKGROUND, RED_COLOR, SHADOW } from '../../../constants/styleC
 import { styles } from './styles'
 
 const DeleteBtn = ({ callback }) => {
+
 	return (
 		<Shadow style={ styles.deleteBtnContainer } distance={ 5 } startColor={ SHADOW }>
 			<Pressable onPress={ callback } android_ripple={{ color: OPACITY_BACKGROUND }}>

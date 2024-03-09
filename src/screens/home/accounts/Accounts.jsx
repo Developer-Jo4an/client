@@ -6,7 +6,7 @@ import AccountsList from './accounts-list/AccountsList'
 import ModalWindowBottom from '../../../components/modal-windows/modal-window-bottom/ModalWindowBottom'
 import NewAccountModalWindow from './modal-windows/new-account-modal-window/NewAccountModalWindow'
 
-import { addNewAccountModal, userAddNewAccountModalSelector } from '../../../redux/slices/user-slice/userSlice'
+import { addNewAccountModal, userAddNewAccountModalSelector } from "../../../redux/slices/user-slice/sub-new-account-slice/subNewAccountExports"
 
 import { styles } from './styles'
 
