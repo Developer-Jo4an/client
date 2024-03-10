@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { TextInput, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { newAccountAddName } from '../../../../../../redux/slices/newAccountSlice'
+import { newAccountAddName } from '../../../../../../redux/slices/new-account-slice/newAccountSlice'
 import { userNewAccountIsLoadingSelector } from '../../../../../../redux/slices/user-slice/sub-new-account-slice/subNewAccountExports'
 
 import { styles } from './styles'

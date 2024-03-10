@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { TextInput } from 'react-native'
 import { useDispatch } from 'react-redux'
 
-import { modifiedAccountAddNameAction } from "../../../../../../redux/slices/modifiedAccountSlice"
+import { modifiedAccountAddNameAction } from "../../../../../../redux/slices/modified-account-slice/modifiedAccountSlice"
 
 import { styles } from "./styles"
 

@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react'
 import { FlatList, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { newAccountAccountSignColorSelector, newAccountAddColor } from '../../../../../../redux/slices/newAccountSlice'
+import { newAccountAccountSignColorSelector, newAccountAddColor } from '../../../../../../redux/slices/new-account-slice/newAccountSlice'
 
 import ColorCircle from '../../../../../../components/color-circle/ColorCircle'
 

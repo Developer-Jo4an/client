@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { userAccountsSelector } from '../../../../redux/slices/user-slice/userSlice'
 import { modifiedAccountModalAction, userModifiedAccountModalSelector } from '../../../../redux/slices/user-slice/sub-modified-account-slice/subModifiedAccountExports'
-import { modifiedAccountSetAccount } from '../../../../redux/slices/modifiedAccountSlice'
+import { modifiedAccountSetAccount } from '../../../../redux/slices/modified-account-slice/modifiedAccountSlice'
 
 import Account from '../../../../components/account/Account'
 import ModalWindowBottom from '../../../../components/modal-windows/modal-window-bottom/ModalWindowBottom'

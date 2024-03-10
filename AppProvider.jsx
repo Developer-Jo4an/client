@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUserInfo, userErrorSelector, userIsLoadingSelector } from './src/redux/slices/user-slice/userSlice'
 
 import { USER_ID } from './src/constants/variableConstants'
+import Transactions from "./src/screens/transactions/general/Transactions";
 
 const Tab = createBottomTabNavigator()
 
@@ -38,6 +39,7 @@ const AppProvider = () => {
 				<NavigationContainer>
 					<Tab.Navigator tabBar={ props => <Navigation {...props} /> }>
 						<Tab.Screen name={ 'Home' } component={ Home } options={{ headerShown: false }} />
+						<Tab.Screen name={ 'Transactions' } component={ Transactions } options={{ headerShown: false }} />
 					</Tab.Navigator>
 				</NavigationContainer>
 				<PortalHost name={ 'application-host' }/>

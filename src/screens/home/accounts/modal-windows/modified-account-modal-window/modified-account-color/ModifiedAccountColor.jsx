@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react'
 import { FlatList, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { modifiedAccountAddColorAction, modifiedAccountColorSelector } from '../../../../../../redux/slices/modifiedAccountSlice'
+import { modifiedAccountAddColorAction, modifiedAccountColorSelector } from '../../../../../../redux/slices/modified-account-slice/modifiedAccountSlice'
 
 import ColorCircle from '../../../../../../components/color-circle/ColorCircle'
 

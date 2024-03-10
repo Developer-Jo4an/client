@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react'
 import { Alert, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { modifiedAccountAccountSelector, modifiedAccountZeroing } from "../../../../../../redux/slices/modifiedAccountSlice"
+import { modifiedAccountAccountSelector, modifiedAccountZeroing } from "../../../../../../redux/slices/modified-account-slice/modifiedAccountSlice"
 import { modifiedAccountAction, modifiedAccountModalAction, userModifiedAccountErrorSelector, userModifiedAccountIsLoadingSelector } from "../../../../../../redux/slices/user-slice/sub-modified-account-slice/subModifiedAccountExports"
 import { deleteAccountAction, userDeleteAccountErrorSelector, userDeleteAccountIsLoadingSelector } from "../../../../../../redux/slices/user-slice/sub-delete-account-slice/subDeleteAccountExports"
 

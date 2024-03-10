@@ -1,6 +1,6 @@
 import { asyncThunkCreator, buildCreateSlice } from '@reduxjs/toolkit'
 
-import { DARK_GREEN_COLOR, GREEN_COLOR } from '../../constants/styleConstants'
+import { DARK_GREEN_COLOR, GREEN_COLOR } from '../../../constants/styleConstants'
 
 const createAsyncSlice = buildCreateSlice({ creators: { asyncThunk: asyncThunkCreator } })
 

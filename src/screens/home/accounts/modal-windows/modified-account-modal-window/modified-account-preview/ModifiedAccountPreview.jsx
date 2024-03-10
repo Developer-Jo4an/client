@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import { useSelector } from 'react-redux'
 
-import { modifiedAccountAccountSelector } from '../../../../../../redux/slices/modifiedAccountSlice'
+import { modifiedAccountAccountSelector } from '../../../../../../redux/slices/modified-account-slice/modifiedAccountSlice'
 
 import Account from '../../../../../../components/account/Account'
 

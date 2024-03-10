@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Shadow } from 'react-native-shadow-2'
 import { useAnimation } from '../../../../../../hooks/useAnimation'
-import { modifiedAccountAddTypeAction, modifiedAccountTypeSelector } from '../../../../../../redux/slices/modifiedAccountSlice'
+import { modifiedAccountAddTypeAction, modifiedAccountTypeSelector } from '../../../../../../redux/slices/modified-account-slice/modifiedAccountSlice'
 
 import { SHADOW } from '../../../../../../constants/styleConstants'
 

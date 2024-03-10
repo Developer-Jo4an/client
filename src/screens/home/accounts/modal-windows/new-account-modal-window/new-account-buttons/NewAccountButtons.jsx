@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react'
 import { Alert, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { newAccountAccountSelector, newAccountZeroing } from '../../../../../../redux/slices/newAccountSlice'
+import { newAccountAccountSelector, newAccountZeroing } from '../../../../../../redux/slices/new-account-slice/newAccountSlice'
 import { addNewAccount, addNewAccountModal, userAddNewAccountErrorSelector, userNewAccountIsLoadingSelector } from "../../../../../../redux/slices/user-slice/sub-new-account-slice/subNewAccountExports"
 
 import ApplyBtn from '../../../../../../UI/buttons/apply-btn/ApplyBtn'

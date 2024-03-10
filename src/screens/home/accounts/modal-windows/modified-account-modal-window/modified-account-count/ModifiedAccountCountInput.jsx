@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { TextInput } from 'react-native'
 import { useDispatch } from 'react-redux'
-import { modifiedAccountAddCountAction } from "../../../../../../redux/slices/modifiedAccountSlice"
+import { modifiedAccountAddCountAction } from "../../../../../../redux/slices/modified-account-slice/modifiedAccountSlice"
 
 import { styles } from "./styles"
 

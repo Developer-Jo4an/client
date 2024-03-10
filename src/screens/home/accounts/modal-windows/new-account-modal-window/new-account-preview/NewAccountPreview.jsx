@@ -2,7 +2,7 @@ import { View } from 'react-native'
 import { useSelector } from 'react-redux'
 
 import { Shadow } from 'react-native-shadow-2'
-import { newAccountAccountSelector } from '../../../../../../redux/slices/newAccountSlice'
+import { newAccountAccountSelector } from '../../../../../../redux/slices/new-account-slice/newAccountSlice'
 
 import Account from '../../../../../../components/account/Account'
 

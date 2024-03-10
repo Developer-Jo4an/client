@@ -3,7 +3,7 @@ import { Pressable, View, Animated } from 'react-native'
 import { Shadow } from 'react-native-shadow-2'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { newAccountAccountTypeSelector, newAccountAddType } from '../../../../../../redux/slices/newAccountSlice'
+import { newAccountAccountTypeSelector, newAccountAddType } from '../../../../../../redux/slices/new-account-slice/newAccountSlice'
 import { useAnimation } from '../../../../../../hooks/useAnimation'
 
 import { SHADOW } from '../../../../../../constants/styleConstants'

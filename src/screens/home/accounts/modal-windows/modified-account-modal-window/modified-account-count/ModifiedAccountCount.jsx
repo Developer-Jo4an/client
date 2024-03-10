@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { View } from 'react-native'
 import { useSelector } from 'react-redux'
 
-import { modifiedAccountCountSelector, modifiedAccountIdSelector } from '../../../../../../redux/slices/modifiedAccountSlice'
+import { modifiedAccountCountSelector, modifiedAccountIdSelector } from '../../../../../../redux/slices/modified-account-slice/modifiedAccountSlice'
 
 import ModifiedAccountCountInput from './ModifiedAccountCountInput'
 
