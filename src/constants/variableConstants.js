@@ -3,10 +3,9 @@ import { DARK_GREEN_COLOR, GREEN_COLOR, GREEN_OPACITY_COLOR } from './styleConst
 // constants for application
 
 export const PORT = '5000'
-export const IP = '192.168.168.31'
+export const IP = '192.168.1.64'
 export const DOMAIN = `http://${IP}:${PORT}`
-export const USER_ID = '64df628be6b9b3d99d542be5'
-export const ENCRYPTED_ID = '260627062003200315265252'
+export const USER_ID = '65f00dc96b41a2885bb6a867'
 
 export const SCREEN_HEIGHT = Dimensions.get('screen').height
 export const SCREEN_WIDTH = Dimensions.get('screen').width

@@ -4,12 +4,19 @@ import { Pressable, Text, View } from 'react-native'
 import { formattedRange } from '../../../../../constants/functionConstants'
 import Feather from 'react-native-vector-icons/Feather'
 import {
-    setAllTimeRangeAction,
-    setHalfYearRangeAction,
-    setMonthRangeAction,
-    setTodayRangeAction,
-    setWeekRangeAction,
-    setYearRangeAction
+	ALL_TIME_LABEL,
+	ALL_TIME_SIGN,
+	HALF_YEAR_LABEL,
+	MONTH_LABEL,
+	setAllTimeRangeAction,
+	setHalfYearRangeAction,
+	setMonthRangeAction,
+	setTodayRangeAction,
+	setWeekRangeAction,
+	setYearRangeAction,
+	TODAY_LABEL,
+	WEEK_LABEL,
+	YEAR_LABEL
 } from '../../../../../redux/slices/filter-slice/filterSlice'
 
 import { GREEN_COLOR, OPACITY_BACKGROUND } from '../../../../../constants/styleConstants'
@@ -21,12 +28,12 @@ const DefaultRange = ({ status, range, label }) => {
 
     const rangeSwitch = label => {
         switch (label) {
-            case 'Today': { dispatch(setTodayRangeAction()); return }
-            case 'Week': { dispatch(setWeekRangeAction()); return }
-            case 'Month': { dispatch(setMonthRangeAction()); return }
-            case 'Half year': { dispatch(setHalfYearRangeAction()); return }
-            case 'Year': { dispatch(setYearRangeAction()); return }
-            case 'All time': { dispatch(setAllTimeRangeAction()); return }
+            case TODAY_LABEL: { dispatch(setTodayRangeAction()); return }
+            case WEEK_LABEL: { dispatch(setWeekRangeAction()); return }
+            case MONTH_LABEL: { dispatch(setMonthRangeAction()); return }
+            case HALF_YEAR_LABEL: { dispatch(setHalfYearRangeAction()); return }
+            case YEAR_LABEL: { dispatch(setYearRangeAction()); return }
+            case ALL_TIME_LABEL: { dispatch(setAllTimeRangeAction()); return }
         }
     }
 
@@ -38,7 +45,7 @@ const DefaultRange = ({ status, range, label }) => {
         >
             <View style={ styles.defaultRangeInfo }>
                 <Text style={ styles.defaultRangeName(status) }>{ label.toString() }</Text>
-                <Text style={ styles.defaultRangeValue(status) }>{ label !== 'All time' ? formattedRange(range) : '∞' }</Text>
+                <Text style={ styles.defaultRangeValue(status) }>{ label !== ALL_TIME_LABEL ? formattedRange(range) : ALL_TIME_SIGN }</Text>
             </View>
             <View style={ styles.defaultRangeCheck(status) }>
                 <Feather name={ 'check' } size={ 22 } color={ GREEN_COLOR } />

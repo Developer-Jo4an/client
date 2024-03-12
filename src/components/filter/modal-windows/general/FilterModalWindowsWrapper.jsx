@@ -2,17 +2,21 @@ import { memo, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
-    filterIsOptionsMWVisibleSelector,
-    filterIsRangeMWVisibleSelector,
-    toggleIsOptionMWVisibleAction,
-    toggleIsRangeMWVisibleAction
+	filterIsOptionsMWVisibleSelector,
+	filterIsRangeMWVisibleSelector,
+	toggleIsOptionsMWVisibleAction,
+	toggleIsRangeMWVisibleAction
 } from '../../../../redux/slices/filter-slice/filterSlice'
 
 import RangeModalWindow from '../range-modal-window/RangeModalWindow'
 import ModalWindowBottom from '../../../modal-windows/modal-window-bottom/ModalWindowBottom'
+import OptionsModalWindow from '../options-modal-window/OptionsModalWindow'
 
 const MemoizedRangeModalWindow = memo(ModalWindowBottom)
 const MemoizedOptionsModalWindow = memo(ModalWindowBottom)
+
+import { SCREEN_HEIGHT } from '../../../../constants/variableConstants'
+
 const FilterModalWindowsWrapper = () => {
     const dispatch = useDispatch()
 
@@ -20,7 +24,7 @@ const FilterModalWindowsWrapper = () => {
     const isVisibleOptionsModalWindow = useSelector(filterIsOptionsMWVisibleSelector)
 
     const closeRangeModalWindow = useCallback(() => dispatch(toggleIsRangeMWVisibleAction()), [])
-    const closeOptionsModalWindow = useCallback(() => dispatch(toggleIsOptionMWVisibleAction()), [])
+    const closeOptionsModalWindow = useCallback(() => dispatch(toggleIsOptionsMWVisibleAction()), [])
 
     return (
         <>
@@ -34,10 +38,11 @@ const FilterModalWindowsWrapper = () => {
 
             <MemoizedOptionsModalWindow
                 visible={ isVisibleOptionsModalWindow }
-                contentHeight={ 500 }
+                contentHeight={ SCREEN_HEIGHT * 0.9 }
                 hostName={ 'application-host' }
                 closeCallback={ closeOptionsModalWindow }
-            >{/* Options Modal Window */}</MemoizedOptionsModalWindow>
+            ><OptionsModalWindow />
+			</MemoizedOptionsModalWindow>
         </>
     )
 }

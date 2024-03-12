@@ -1,7 +1,7 @@
 import { Pressable, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 
-import { toggleIsRangeMWVisibleAction } from '../../../redux/slices/filter-slice/filterSlice'
+import { toggleIsOptionsMWVisibleAction, toggleIsRangeMWVisibleAction, toggleTimeRangeAction } from '../../../redux/slices/filter-slice/filterSlice'
 
 import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -15,9 +15,13 @@ import { OPACITY_BACKGROUND } from '../../../constants/styleConstants'
 import { styles } from './styles'
 
 const Filter = () => {
-    const dispatch = useDispatch()
+	const dispatch = useDispatch()
 
-    return (
+	const toggleRange = action => dispatch(toggleTimeRangeAction(action))
+
+	const showOptionModalWindow = () => dispatch(toggleIsOptionsMWVisibleAction())
+
+	return (
         <View style={ styles.filterContainer }>
             <View style={ styles.filterRangeWrapper }>
                 <View style={ styles.filterRangeInfo }>
@@ -31,19 +35,28 @@ const Filter = () => {
                     </Pressable>
                 </View>
                 <View style={ styles.filterBtnWrapper }>
-                    <Pressable style={ styles.filterArrowBtn } android_ripple={{ color: OPACITY_BACKGROUND }}>
-                        <MaterialIcons name={ 'keyboard-arrow-left' } size={ 20 } color={ '#000' }/>
+                    <Pressable
+	                    style={ styles.filterArrowBtn }
+	                    android_ripple={{ color: OPACITY_BACKGROUND }}
+	                    onPress={ () => toggleRange('subtract') }
+                    ><MaterialIcons name={ 'keyboard-arrow-left' } size={ 20 } color={ '#000' } />
                     </Pressable>
                 </View>
                 <View style={ styles.filterBtnWrapper }>
-                    <Pressable style={ styles.filterArrowBtn } android_ripple={{ color: OPACITY_BACKGROUND }}>
-                        <MaterialIcons name={ 'keyboard-arrow-right' } size={ 20 } color={ '#000' }/>
+                    <Pressable
+	                    style={ styles.filterArrowBtn }
+	                    android_ripple={{ color: OPACITY_BACKGROUND }}
+	                    onPress={ () => toggleRange('add') }
+                    ><MaterialIcons name={ 'keyboard-arrow-right' } size={ 20 } color={ '#000' } />
                     </Pressable>
                 </View>
             </View>
             <View style={ styles.filterBtnWrapper }>
-                <Pressable style={ styles.filterOptionsBtn } android_ripple={{ color: OPACITY_BACKGROUND }}>
-                    <Ionicons name={ 'options' } size={ 20 } color={ '#000' } />
+                <Pressable
+	                style={ styles.filterOptionsBtn }
+	                android_ripple={{ color: OPACITY_BACKGROUND }}
+	                onPress={ showOptionModalWindow }
+                ><Ionicons name={ 'options' } size={ 20 } color={ '#000' } />
                 </Pressable>
             </View>
             <FilterModalWindowsWrapper />

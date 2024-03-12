@@ -11,6 +11,7 @@ import { styles } from './styles'
 
 const MemoizedDefaultRange = memo(DefaultRange, (prev, next) => prev.status === next.status)
 const MemoizedCustomRange = memo(CustomRange)
+
 const RangeModalWindow = () => {
     const defaultRanges = useSelector(filterTimeRangeDefaultSelector)
 

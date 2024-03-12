@@ -1,13 +1,15 @@
 import { GREEN_COLOR, ORANGE_COLOR, RED_COLOR } from '../../constants/styleConstants'
 
 export const styles = {
-	account: {
+	account: callback => ({
 		borderRadius: 12,
 
 		overflow: 'hidden',
 
-		backgroundColor: '#fff'
-	},
+		backgroundColor: '#fff',
+
+		pointerEvents: callback ? 'auto' : 'none'
+	}),
 	accountWrapper: {
 		flexDirection: 'row',
 		alignItems: 'center',

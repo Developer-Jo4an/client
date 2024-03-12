@@ -33,6 +33,9 @@ export const userSlice = createAsyncSlice({
 		userAvatarSelector: sliceState => sliceState.user.avatar,
 		userNicknameSelector: sliceState => sliceState.user.nickname,
 		userSubscriptionLevelSelector: sliceState => sliceState.user.subscriptionLevel,
+		userTransactionCategoriesSelector: sliceState => sliceState.user.transactionCategories,
+		userTransactionCategoriesExpenseSelector: sliceState => sliceState.user.transactionCategories.expense,
+		userTransactionCategoriesIncomeSelector: sliceState => sliceState.user.transactionCategories.income,
 
 		...newAccountSelectors,
 		...modifiedAccountSelectors,
@@ -66,6 +69,9 @@ export const {
 	userAvatarSelector,
 	userNicknameSelector,
 	userSubscriptionLevelSelector,
+	userTransactionCategoriesSelector,
+	userTransactionCategoriesExpenseSelector,
+	userTransactionCategoriesIncomeSelector
 } = userSlice.selectors
 
 export const {

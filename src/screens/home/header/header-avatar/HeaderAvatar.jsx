@@ -15,10 +15,15 @@ const HeaderAvatar = () => {
 
 	return (
 		<View style={ styles.headerAvatarWrapper(subscriptionLevel) }>
-			<Image
-				source={{ uri: `data:image/jpeg;base64,${Buffer.from(avatar).toString('base64')}` }}
-				style={ styles.headerAvatar }
-			/>
+			{
+				avatar ?
+					<Image
+						source={{ uri: `data:image/jpeg;base64,${Buffer.from(avatar).toString('base64')}` }}
+						style={ styles.headerAvatar }
+					/>
+					:
+					<View style={ styles.headerAvatar }></View>
+			}
 			<View style={ styles.headerAvatarClickUI }>
 				<Pressable android_ripple={{ color: OPACITY_BACKGROUND }}><View style={ styles.headerAvatarClickUIView }></View></Pressable>
 			</View>
