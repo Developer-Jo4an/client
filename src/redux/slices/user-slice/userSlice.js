@@ -1,11 +1,12 @@
 import { asyncThunkCreator, buildCreateSlice } from '@reduxjs/toolkit'
 
 import { UserRequestService } from '../../../services/UserRequestService'
-import { UserAsyncThunksHandler } from '../../../async-thunks-handler/UserAsyncThunksHandler'
+import { UserAsyncThunksHandler } from '../../../async-thunks-handlers/UserAsyncThunksHandler'
 
 import { initialNewAccountState, newAccountActions, newAccountSelectors} from './sub-new-account-slice/subNewAccountSlice'
 import { initialModifiedAccountState, modifiedAccountActions, modifiedAccountSelectors } from './sub-modified-account-slice/subModifiedAccountSlice'
-import { deleteAccountActions, deleteAccountSelectors, initialDeleteAccountState } from "./sub-delete-account-slice/subDeleteAccountSlice"
+import { initialDeleteAccountState, deleteAccountActions, deleteAccountSelectors } from "./sub-delete-account-slice/subDeleteAccountSlice"
+import { initialNewTransactionState,  newTransactionActions,  newTransactionSelectors } from './sub-new-transaction-slice/subNewTransactionSlice'
 
 const createAsyncSlice = buildCreateSlice({ creators: { asyncThunk: asyncThunkCreator } })
 
@@ -17,6 +18,7 @@ const initialState = {
 	...initialNewAccountState,
 	...initialModifiedAccountState,
 	...initialDeleteAccountState,
+	...initialNewTransactionState,
 }
 
 export const userSlice = createAsyncSlice({
@@ -33,6 +35,7 @@ export const userSlice = createAsyncSlice({
 		userAvatarSelector: sliceState => sliceState.user.avatar,
 		userNicknameSelector: sliceState => sliceState.user.nickname,
 		userSubscriptionLevelSelector: sliceState => sliceState.user.subscriptionLevel,
+		userTransactionsSelector: sliceState => sliceState.user.transactions,
 		userTransactionCategoriesSelector: sliceState => sliceState.user.transactionCategories,
 		userTransactionCategoriesExpenseSelector: sliceState => sliceState.user.transactionCategories.expense,
 		userTransactionCategoriesIncomeSelector: sliceState => sliceState.user.transactionCategories.income,
@@ -40,6 +43,7 @@ export const userSlice = createAsyncSlice({
 		...newAccountSelectors,
 		...modifiedAccountSelectors,
 		...deleteAccountSelectors,
+		...newTransactionSelectors
 	},
 	reducers: create => ({
 		// user
@@ -48,14 +52,17 @@ export const userSlice = createAsyncSlice({
 			UserAsyncThunksHandler.getUserInfo
 		),
 
-		// add new account
+		// new account
 		...newAccountActions(create),
 
 		// modified account
 		...modifiedAccountActions(create),
 
 		// delete account
-		...deleteAccountActions(create)
+		...deleteAccountActions(create),
+
+		// new transaction
+		...newTransactionActions(create)
 	})
 })
 
@@ -69,6 +76,7 @@ export const {
 	userAvatarSelector,
 	userNicknameSelector,
 	userSubscriptionLevelSelector,
+	userTransactionsSelector,
 	userTransactionCategoriesSelector,
 	userTransactionCategoriesExpenseSelector,
 	userTransactionCategoriesIncomeSelector

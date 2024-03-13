@@ -1,14 +1,15 @@
 import React from 'react'
-import { View, Text, Animated, Pressable } from 'react-native'
-
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import { View, Text, Pressable } from 'react-native'
 
 import { Shadow } from 'react-native-shadow-2'
 
 import { GREEN_COLOR, SHADOW } from '../../constants/styleConstants'
 
-import { styles } from './styles'
+import { Home } from 'lucide-react-native'
+import { BarChartBig } from 'lucide-react-native'
+import { SquareMenu } from 'lucide-react-native'
 
+import { styles } from './styles'
 
 const Navigation = ({ state, descriptors, navigation }) => {
 
@@ -28,19 +29,19 @@ const Navigation = ({ state, descriptors, navigation }) => {
 		        <View style={ styles.navigationWrapper }>
 			        <Pressable onPress={ () => screenSwitch('Home') }>
 				        <View style={ styles.navigationItem(activeRouteName, 'Home') }>
-					        <FontAwesome name={ 'home' } size={ 22 } color={ activeRouteName === 'Home' ? GREEN_COLOR : '#000'} />
+					        <Home size={ 24 } color={ activeRouteName === 'Home' ? GREEN_COLOR : '#000'} />
 					        <Text style={ styles.navigationItemText(activeRouteName, 'Home') }>Home</Text>
 				        </View>
 			        </Pressable>
 			        <Pressable onPress={ () => screenSwitch('Analytics') }>
 				        <View style={ styles.navigationItem(activeRouteName, 'Analytics') }>
-					        <FontAwesome name={ 'bar-chart' } size={ 22 } color={ activeRouteName === 'Analytics' ? GREEN_COLOR : '#000'} />
+					        <BarChartBig size={ 24 } color={ activeRouteName === 'Analytics' ? GREEN_COLOR : '#000'} />
 					        <Text style={ styles.navigationItemText(activeRouteName, 'Analytics') }>Analytics</Text>
 				        </View>
 			        </Pressable>
 			        <Pressable onPress={ () => screenSwitch('Transactions') }>
 				        <View style={ styles.navigationItem(activeRouteName, 'Transactions') }>
-					        <FontAwesome name={ 'bars' } size={ 22 } color={ activeRouteName === 'Transactions' ? GREEN_COLOR : '#000'} />
+					        <SquareMenu size={ 24 } color={ activeRouteName === 'Transactions' ? GREEN_COLOR : '#000'} />
 					        <Text style={ styles.navigationItemText(activeRouteName, 'Transactions') }>Transactions</Text>
 				        </View>
 			        </Pressable>

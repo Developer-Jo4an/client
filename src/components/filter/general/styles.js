@@ -3,6 +3,8 @@ import {SCREEN_WIDTH} from "../../../constants/variableConstants";
 
 export const styles = {
     filterContainer: {
+		width: SCREEN_WIDTH,
+
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -38,9 +40,6 @@ export const styles = {
         borderRadius: 99,
 
         overflow: 'hidden'
-    },
-    filterArrowBtn: {
-        padding: 10,
     },
     filterOptionsBtn: {
         padding: 10,

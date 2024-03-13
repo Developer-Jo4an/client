@@ -29,7 +29,9 @@ export const styles = {
 
         overflow: 'hidden',
 
-        zIndex: 2
+        zIndex: 2,
+
+	    backgroundColor: GREEN_COLOR
     },
     fixedAddBtnSign: {
         width: 60,
@@ -39,6 +41,5 @@ export const styles = {
         justifyContent: 'center',
         alignItems: 'center',
 
-        backgroundColor: GREEN_COLOR
     }
 }

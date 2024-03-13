@@ -1,5 +1,5 @@
+import { View, Text, FlatList, Image, Pressable } from 'react-native'
 import { useSelector } from 'react-redux'
-import {View, Text, FlatList, Image, Pressable} from 'react-native'
 
 import { userSubscriptionLevelSelector } from '../../../redux/slices/user-slice/userSlice'
 

@@ -22,6 +22,6 @@ export const styles = {
         alignItems: 'center'
     },
     modalWindowCenterContent: contentWidth => ({
-        width: contentWidth,
+        width: contentWidth ?? 'auto',
     })
 }

@@ -1,14 +1,24 @@
-import { FlatList, Text } from 'react-native'
+import { FlatList } from 'react-native'
 import { PortalHost } from "@gorhom/portal"
 
-import { styles } from './styles'
+import { useFilteredTransactions } from '../../../hooks/useFilteredTransactions'
+
 import Filter from '../../../components/filter/general/Filter'
+import Total from '../total/Total'
+import TransactionsList from '../transactions-list/TransactionsList'
+import NewTransactionButton from '../new-transaction/new-transaction-button/NewTransactionButton'
+
+import { styles } from './styles'
 
 const Transactions = () => {
 
-    const transactionsComponents = []
+    const transactionsComponents = [
+	    { key: 'Total', component: <Total /> },
+	    { key: 'TransactionsList', component: <TransactionsList />  },
+	    { key: 'AddTransactionButton', component: <NewTransactionButton /> }
+    ]
 
-    return (
+	return (
         <>
             <FlatList
                 data={ transactionsComponents }

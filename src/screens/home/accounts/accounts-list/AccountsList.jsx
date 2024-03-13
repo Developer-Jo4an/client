@@ -36,7 +36,7 @@ const AccountsList = memo(() => {
 				hostName={ 'application-host' }
 				visible={ modifiedAccountModalState }
 				closeCallback={ () => dispatch(modifiedAccountModalAction()) }
-				contentHeight={ 400 }
+				contentHeight={ 200 }
 			><ModifiedAccountModalWindow />
 			</ModalWindowBottom>
 		</View>

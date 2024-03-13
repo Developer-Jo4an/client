@@ -19,6 +19,7 @@ const RangeModalWindow = () => {
         Object.values(defaultRanges).map(({ status, range, label }) =>
             <MemoizedDefaultRange key={ label.toString() } status={ status } range={ range } label={ label } />)
 
+
     return (
         <View style={ styles.rangeModalWindowContainer }>
             { defaultRangesComponents() }

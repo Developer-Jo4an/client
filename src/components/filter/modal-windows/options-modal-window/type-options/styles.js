@@ -1,5 +1,5 @@
 export const styles = {
-	typeOptionsModalWindow: {
+	typeOptions: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		paddingTop: 10,

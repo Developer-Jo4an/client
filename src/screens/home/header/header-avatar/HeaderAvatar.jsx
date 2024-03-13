@@ -4,7 +4,9 @@ import { Buffer } from 'buffer'
 
 import { userAvatarSelector, userSubscriptionLevelSelector } from '../../../../redux/slices/user-slice/userSlice'
 
-import { OPACITY_BACKGROUND } from '../../../../constants/styleConstants'
+import { GREEN_COLOR, OPACITY_BACKGROUND } from '../../../../constants/styleConstants'
+
+import { User } from 'lucide-react-native'
 
 import { styles } from './styles'
 
@@ -22,7 +24,9 @@ const HeaderAvatar = () => {
 						style={ styles.headerAvatar }
 					/>
 					:
-					<View style={ styles.headerAvatar }></View>
+					<View style={ styles.headerAvatar }>
+						<User size={ 36 } color={ GREEN_COLOR } />
+					</View>
 			}
 			<View style={ styles.headerAvatarClickUI }>
 				<Pressable android_ripple={{ color: OPACITY_BACKGROUND }}><View style={ styles.headerAvatarClickUIView }></View></Pressable>

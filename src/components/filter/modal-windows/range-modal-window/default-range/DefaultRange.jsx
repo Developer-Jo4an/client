@@ -2,7 +2,6 @@ import { useDispatch } from 'react-redux'
 import { Pressable, Text, View } from 'react-native'
 
 import { formattedRange } from '../../../../../constants/functionConstants'
-import Feather from 'react-native-vector-icons/Feather'
 import {
 	ALL_TIME_LABEL,
 	ALL_TIME_SIGN,
@@ -19,7 +18,9 @@ import {
 	YEAR_LABEL
 } from '../../../../../redux/slices/filter-slice/filterSlice'
 
-import { GREEN_COLOR, OPACITY_BACKGROUND } from '../../../../../constants/styleConstants'
+import {GREEN_COLOR, OPACITY_BACKGROUND} from '../../../../../constants/styleConstants'
+
+import { Check } from 'lucide-react-native'
 
 import { styles } from './styles'
 
@@ -48,7 +49,7 @@ const DefaultRange = ({ status, range, label }) => {
                 <Text style={ styles.defaultRangeValue(status) }>{ label !== ALL_TIME_LABEL ? formattedRange(range) : ALL_TIME_SIGN }</Text>
             </View>
             <View style={ styles.defaultRangeCheck(status) }>
-                <Feather name={ 'check' } size={ 22 } color={ GREEN_COLOR } />
+	            <Check size={ 24 } color={ status ? GREEN_COLOR : '#fff' } />
             </View>
         </Pressable>
     )

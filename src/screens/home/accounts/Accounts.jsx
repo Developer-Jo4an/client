@@ -25,7 +25,7 @@ const Accounts = () => {
 				hostName={ 'application-host' }
 				visible={ newAccountModalToggle }
 				closeCallback={ () => dispatch(addNewAccountModal()) }
-				contentHeight={ 400 }
+				contentHeight={ 200 }
 			><NewAccountModalWindow />
 			</ModalWindowBottom>
 		</View>

@@ -6,7 +6,8 @@ export const styles = {
     },
     transactionsScreenContent: {
         gap: 10,
+	    alignItems: 'center',
 
-        paddingBottom: 10
+        paddingBottom: 10,
     }
 }

@@ -30,7 +30,7 @@ const FilterModalWindowsWrapper = () => {
         <>
             <MemoizedRangeModalWindow
                 visible={ isVisibleRangeModalWindow }
-                contentHeight={ 300 }
+                contentHeight={ 220 }
                 hostName={ 'application-host' }
                 closeCallback={ closeRangeModalWindow }
             ><RangeModalWindow />
@@ -38,7 +38,7 @@ const FilterModalWindowsWrapper = () => {
 
             <MemoizedOptionsModalWindow
                 visible={ isVisibleOptionsModalWindow }
-                contentHeight={ SCREEN_HEIGHT * 0.9 }
+                contentHeight={ SCREEN_HEIGHT * 0.45 }
                 hostName={ 'application-host' }
                 closeCallback={ closeOptionsModalWindow }
             ><OptionsModalWindow />

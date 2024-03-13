@@ -29,15 +29,6 @@ export const ALL_TIME_LABEL = 'All time'
 
 export const ALL_TIME_SIGN = '∞'
 
-// types constants
-export const EXPENSE_TYPE = 'expense'
-export const INCOME_TYPE = 'income'
-export const TRANSFER_TYPE = 'transfer'
-
-export const EXPENSE_LABEL = 'Expense'
-export const INCOME_LABEL = 'Income'
-export const TRANSFER_LABEL = 'Transfer'
-
 const createAsyncSlice = buildCreateSlice({ creators: { asyncThunk: asyncThunkCreator } })
 
 const initialState = {

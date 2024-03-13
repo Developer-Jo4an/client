@@ -34,3 +34,11 @@ export const CIRCLE_COLORS = [
     ['#007fff', '#0000ff'],
     ['#0000ff', '#8b00ff']
 ]
+
+export const EXPENSE_TYPE = 'expense'
+export const INCOME_TYPE = 'income'
+export const TRANSFER_TYPE = 'transfer'
+
+export const EXPENSE_LABEL = 'Expense'
+export const INCOME_LABEL = 'Income'
+export const TRANSFER_LABEL = 'Transfer'

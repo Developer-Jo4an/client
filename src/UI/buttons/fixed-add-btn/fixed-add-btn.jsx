@@ -2,7 +2,10 @@ import React, { useEffect, useRef } from 'react'
 import { Animated, Easing, Pressable, View } from 'react-native'
 
 import { Portal } from '@gorhom/portal'
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+
+import { OPACITY_BACKGROUND } from '../../../constants/styleConstants'
+
+import { Plus } from 'lucide-react-native'
 
 import { styles } from './styles'
 
@@ -27,9 +30,9 @@ const FixedAddBtn = ({ callback, position, hostName }) => {
             <View style={ styles.fixedAddBtnContainer(position) }>
                 <Animated.View style={ styles.fixedAddBtnPulse(animation) }></Animated.View>
                 <View style={ styles.fixedAddBtnWrapper }>
-                    <Pressable onPress={ callback } android_ripple={{ color: 'rgba(0, 0, 0, 0)'}}>
+                    <Pressable onPress={ callback } android_ripple={{ color: OPACITY_BACKGROUND }}>
                         <View style={ styles.fixedAddBtnSign }>
-                            <FontAwesome name={ 'plus' } size={ 22 } color={ '#fff' } />
+                            <Plus size={ 22 } color={ '#fff' } />
                         </View>
                     </Pressable>
                 </View>

@@ -1,5 +1,5 @@
 import { AccountsRequestService } from "../../../../services/AccountsRequestService"
-import { AccountsAsyncThunkHandler } from "../../../../async-thunks-handler/AccountsAsyncThunkHandler"
+import { AccountsAsyncThunkHandler } from "../../../../async-thunks-handlers/AccountsAsyncThunkHandler"
 
 export const initialModifiedAccountState = {
 	modifiedAccountIsLoading: false,

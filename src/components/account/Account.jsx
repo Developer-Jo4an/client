@@ -1,16 +1,20 @@
 import { memo } from 'react'
 import { Pressable, View, Text } from 'react-native'
 
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { LinearGradient } from 'expo-linear-gradient'
 
 import { NO_CLICK_COLOR, OPACITY_BACKGROUND } from '../../constants/styleConstants'
+
+import { Banknote } from 'lucide-react-native'
+import { CreditCard } from 'lucide-react-native'
 
 import { styles } from './styles'
 
 const Account = ({ account, callback, styleProps }) => {
 
 	const { accountName, accountType, accountSignColor, count } = account
+
+	const accountSign = type => type === 'cash' ? <Banknote size={ 18 } color={ '#fff' } /> : <CreditCard size={ 18 } color={ '#fff' } />
 
 	return (
 		<View style={{ ...styles.account(callback), ...styleProps }}>
@@ -20,7 +24,7 @@ const Account = ({ account, callback, styleProps }) => {
 						<View style={ styles.accountSignWrapper }>
 							<LinearGradient colors={ accountSignColor } start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 1 }}>
 								<View style={ styles.accountSign }>
-									<FontAwesome name={ accountType === 'cash' ? 'money' : 'credit-card-alt' } color={ '#fff' } size={ 16 } />
+									{ accountSign(accountType) }
 								</View>
 							</LinearGradient>
 						</View>

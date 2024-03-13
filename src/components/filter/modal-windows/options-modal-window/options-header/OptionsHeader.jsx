@@ -1,10 +1,11 @@
 import { Pressable, Text, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 
-import AntDesign from 'react-native-vector-icons/AntDesign'
 import { toggleIsOptionsMWVisibleAction } from '../../../../../redux/slices/filter-slice/filterSlice'
 
 import { OPACITY_BACKGROUND } from '../../../../../constants/styleConstants'
+
+import { X } from 'lucide-react-native'
 
 import { styles } from './styles'
 
@@ -18,7 +19,7 @@ const OptionsHeader = () => {
 					style={ styles.optionModalWindowBtn }
 					android_ripple={{ color: OPACITY_BACKGROUND }}
 					onPress={ () => dispatch(toggleIsOptionsMWVisibleAction()) }
-				><AntDesign name={ 'close' } size={ 24 } color={ '#000' } />
+				><X size={ 24 } color={ '#000' } />
 				</Pressable>
 			</View>
 			<Text style={ styles.optionsModalWindowHeaderValue }>Filter</Text>
