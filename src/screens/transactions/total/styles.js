@@ -1,4 +1,4 @@
-import { SCREEN_WIDTH } from '../../../constants/variableConstants'
+import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../../../constants/variableConstants'
 import {
 	GRAY_COLOR,
 	GREEN_COLOR,

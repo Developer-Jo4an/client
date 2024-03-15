@@ -8,7 +8,7 @@ import { OPACITY_BACKGROUND } from '../../../../../constants/styleConstants'
 
 import { styles } from './styles'
 
-const NewTransactionCategoryComponent = memo(({ category, isSelect, callback }) => {
+const NewTransactionCategory = memo(({ category, isSelect, callback }) => {
 	const { _id, color, name } = category
 
 	const [animation, animationFunc] = useAnimation(isSelect)
@@ -30,10 +30,5 @@ const NewTransactionCategoryComponent = memo(({ category, isSelect, callback }) 
 			</Pressable>
 		</View>
 	)
-}, (prev, next) => {
-	return (
-		JSON.stringify(prev.category) === JSON.stringify(next.category) &&
-		prev.isSelect === next.isSelect
-	)
-})
-export default NewTransactionCategoryComponent
+}, (prev, next) => JSON.stringify(prev.category) === JSON.stringify(next.category) && prev.isSelect === next.isSelect)
+export default NewTransactionCategory

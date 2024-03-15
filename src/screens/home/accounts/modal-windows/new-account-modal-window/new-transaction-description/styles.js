@@ -3,7 +3,8 @@ import { GRAY_COLOR } from '../../../../../../constants/styleConstants'
 export const styles = {
 	newTransactionDescription: {
 		paddingLeft: 12,
-		paddingRight: 12
+		paddingRight: 12,
+		paddingBottom: 10,
 	},
 	newTransactionDescriptionInput: {
 		height: 50,

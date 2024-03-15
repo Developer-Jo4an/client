@@ -1,17 +1,19 @@
-import { SCREEN_WIDTH } from '../../../../../constants/variableConstants'
+import { EXPENSE_TYPE, INCOME_TYPE, TRANSFER_TYPE } from '../../../../../constants/variableConstants'
 
 export const styles = {
 	newTransactionMore: {
-		overflowX: 'hidden'
+
 	},
-	newTransactionMoreWrapper: animation => ({
-		flexDirection: 'row',
+	newTransactionMoreWrapper: (animation, type, newTransactionTypeState) => ({
+		height: type === newTransactionTypeState ? 'auto' : 0,
 
-		position: 'absolute',
-
-		left: animation.interpolate({
+		transform: [{ translateX: animation.interpolate({
 			inputRange: [0, 1, 2],
-			outputRange: [0, -SCREEN_WIDTH, -2 * SCREEN_WIDTH]
-		})
+			outputRange: [
+				newTransactionTypeState === EXPENSE_TYPE ? 0 : 20,
+				newTransactionTypeState === INCOME_TYPE ? 0 : 20,
+				newTransactionTypeState === TRANSFER_TYPE ? 0 : 20,
+			]
+		}) }]
 	})
 }

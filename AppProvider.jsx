@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import Navigation from './src/components/navigation/Navigation'
 import Home from './src/screens/home/general/Home'
+import Transactions from "./src/screens/transactions/general/Transactions"
 import OpaqueLoader from './src/components/loaders/opaque-loader/OpaqueLoader'
 import Error from './src/screens/error/general/Error'
 
@@ -13,7 +14,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUserInfo, userErrorSelector, userIsLoadingSelector } from './src/redux/slices/user-slice/userSlice'
 
 import { USER_ID } from './src/constants/variableConstants'
-import Transactions from "./src/screens/transactions/general/Transactions";
 
 const Tab = createBottomTabNavigator()
 

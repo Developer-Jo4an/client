@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { View } from 'react-native'
 import { useDispatch } from 'react-redux'
 
@@ -11,7 +12,7 @@ import NewTransactionTimeValue from './new-transaction-time-value/NewTransaction
 
 import { styles } from './styles'
 
-const NewTransactionDate = () => {
+const NewTransactionDate = memo(() => {
 	const dispatch = useDispatch()
 
 	return (
@@ -24,5 +25,5 @@ const NewTransactionDate = () => {
 			<MemoizedArrowBtn size={ 18 } color={ '#000' } direction={ 'right' } callback={ () => dispatch(newTransactionDateToggleAction('add')) } />
 		</View>
 	)
-}
+})
 export default NewTransactionDate

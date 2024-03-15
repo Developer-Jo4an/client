@@ -24,14 +24,7 @@ const Category = ({ category, callback, styleProps }) => {
 	)
 }
 
-const MemoizedCategory = memo(Category, (prev, next) => {
-	return (
-		prev.category._id === next.category._id &&
-		prev.category.sign === next.category.sign &&
-		prev.category.color === next.category.color	&&
-		prev.category.count === next.category.count
-	)
-})
+const MemoizedCategory = memo(Category, (prev, next) => JSON.stringify(prev.category) === JSON.stringify(next.category))
 
 export { MemoizedCategory }
 

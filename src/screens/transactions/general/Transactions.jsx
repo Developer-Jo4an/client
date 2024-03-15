@@ -15,7 +15,6 @@ const Transactions = () => {
     const transactionsComponents = [
 	    { key: 'Total', component: <Total /> },
 	    { key: 'TransactionsList', component: <TransactionsList />  },
-	    { key: 'AddTransactionButton', component: <NewTransactionButton /> }
     ]
 
 	return (
@@ -31,6 +30,7 @@ const Transactions = () => {
                 style={ styles.transactionsScreenContainer }
                 contentContainerStyle={ styles.transactionsScreenContent }
             />
+	        <NewTransactionButton />
             <PortalHost name={ 'transactions-host' } />
         </>
     )

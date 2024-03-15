@@ -5,13 +5,13 @@ import { toggleIsOptionsMWVisibleAction, toggleIsRangeMWVisibleAction, toggleTim
 
 import FilterRangeValue from "../filter-range-value/FilterRangeValue"
 import FilterModalWindowsWrapper from "../modal-windows/general/FilterModalWindowsWrapper"
+import ArrowBtn from '../../../UI/buttons/arrow-btn/ArrowBtn'
 
 import { OPACITY_BACKGROUND } from '../../../constants/styleConstants'
 
-import { Calendar, ChevronRight, SlidersHorizontal, ChevronLeft } from 'lucide-react-native'
+import { Calendar, SlidersHorizontal } from 'lucide-react-native'
 
 import { styles } from './styles'
-import ArrowBtn from '../../../UI/buttons/arrow-btn/ArrowBtn';
 
 const Filter = () => {
 	const dispatch = useDispatch()

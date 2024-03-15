@@ -25,7 +25,6 @@ const NewTransactionButton = () => {
 			<FixedAddBtn
 				callback={ toggleNewTransactionModalWindowVisible }
 				position={{ top: SCREEN_HEIGHT - 190, left: SCREEN_WIDTH - 85 }}
-				hostName={ 'transactions-host' }
 			/>
 			<ModalWindowBottom
 				visible={ NewTransactionModalWindowVisible }

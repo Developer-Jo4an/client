@@ -1,4 +1,4 @@
-import {asyncThunkCreator, buildCreateSlice} from '@reduxjs/toolkit'
+import { asyncThunkCreator, buildCreateSlice } from '@reduxjs/toolkit'
 
 import moment from 'moment'
 
@@ -52,14 +52,16 @@ export const newTransactionSlice = createAsyncSlice({
 			state.transaction.transactionAmount = action.payload
 		}),
 		newTransactionAddTransferAccountAction: create.reducer((state, action) => {
-			if (action.payload === state.transaction.transactionAccount) return
 			state.transaction.transactionTransferAccount = action.payload
 		}),
 		newTransactionAddDescriptionAction: create.reducer((state, action) => {
 			state.transaction.transactionDescription = action.payload
 		}),
 		newTransactionAddCategoryAction: create.reducer((state, action) => {
+			if (action.payload === state.transaction.transactionCategory) return
+
 			state.transaction.transactionCategory = action.payload
+			state.transaction.transactionSubCategory = ''
 		}),
 		newTransactionAddSubCategoryAction: create.reducer((state, action) => {
 			state.transaction.transactionSubCategory = action.payload

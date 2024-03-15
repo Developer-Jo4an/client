@@ -18,7 +18,7 @@ import { styles } from './styles'
 
 const MemoizedTransactionTypeButton = memo(TransactionTypeBtn, (prev, next) => prev.isActive === next.isActive)
 
-const NewTransactionType = () => {
+const NewTransactionType = memo(() => {
 	const newTransactionTypeState = useSelector(newTransactionTypeSelector)
 
 	const buttonsArray = [
@@ -35,6 +35,6 @@ const NewTransactionType = () => {
 			})}
 		</View>
 	)
-}
+})
 
 export default NewTransactionType

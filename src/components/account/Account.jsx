@@ -37,16 +37,7 @@ const Account = ({ account, callback, styleProps }) => {
 	)
 }
 
-const MemoizedAccount = memo(Account, (prev, next) => {
-	return (
-		prev.account._id === next.account._id &&
-		prev.account.accountName === next.account.accountName &&
-		prev.account.count === next.account.count &&
-		prev.account.accountType === next.account.accountType &&
-		prev.account.accountSignColor[0] === next.account.accountSignColor[0] &&
-		prev.account.accountSignColor[1] === next.account.accountSignColor[1]
-	)
-})
+const MemoizedAccount = memo(Account, (prev, next) => JSON.stringify(prev.account) === JSON.stringify(next.account))
 
 export { MemoizedAccount }
 

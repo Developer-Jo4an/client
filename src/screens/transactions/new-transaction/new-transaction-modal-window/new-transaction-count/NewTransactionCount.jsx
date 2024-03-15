@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, memo } from 'react'
 import { TextInput, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -8,7 +8,7 @@ import { GRAY_COLOR } from '../../../../../constants/styleConstants'
 
 import { styles } from './styles'
 
-const NewTransactionCount = () => {
+const NewTransactionCount = memo(() => {
 	const dispatch = useDispatch()
 
 	const newTransactionCountValue = useSelector(newTransactionAmountSelector)
@@ -29,6 +29,6 @@ const NewTransactionCount = () => {
 			/>
 		</View>
 	)
-}
+})
 
 export default NewTransactionCount
